@@ -59,29 +59,31 @@
       </li>
 
    <% end %>
-   
-    <% if admin_signed_in? %>
+   <!--
+    <%# if admin_signed_in? %>
      <li class= items>
-      <%= link_to '商品一覧' %>
+      <%#= link_to '商品一覧' %>
       </li>
 
      <li class= customers>
-      <%= link_to '会員一覧' %>
+      <%#= link_to '会員一覧' %>
       </li>
 
        <li class=orders>
-      <%= link_to '注文履歴一覧' %>
+      <%#= link_to '注文履歴一覧' %>
       </li>
-      
+
       <li class=genres>
-      <%= link_to 'ジャンル一覧' %>
+      <%#= link_to 'ジャンル一覧' %>
       </li>
 
       <li class=logout>
-       <%= link_to "ログアウト" %>
+       <%#= link_to "ログアウト" %>
       </li>
-    
-    <% end %>
+
+    <%# end %>
+    -->
+
     </ul>
     </div>
     </nav>
@@ -89,4 +91,5 @@
     <%= notice %>
     <%= yield %>
   </body>
-</html>
+
+  </html>
