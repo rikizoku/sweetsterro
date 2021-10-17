@@ -1,15 +1,92 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sweetsterro</title>
+    <title>sweetsterro</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-      <%= yield %>
+
+    <header>
+        <div class="container">
+
+      <li class="LOGO">
+       <strong>"LOGO"</strong>
+      </li>
+
+      <div class="collapse navbar-collapse" id="navbarNavDropdown"></div>
+      <ul class="navbar-nav ml-auto">
+      <% if customer_signed_in? %>
+
+      <li class= mypage>
+        <%= link_to "マイページ" %>
+      </li>
+
+     <li class= items>
+      <%= link_to '商品一覧' %>
+      </li>
+
+       <li class=Books>
+      <%= link_to 'カート' %>
+      </li>
+
+      <li class=logout>
+       <%= link_to "ログアウト" %>
+      </li>
+
+    <% else %>
+
+     <li class=about>
+        <%= link_to "About" %>
+      </li>
+
+       <li class= items>
+      <%= link_to '商品一覧' %>
+      </li>
+
+
+      <li calss=signup>
+       <%= link_to "新規登録" %>
+      </li>
+
+      <li class=login>
+       <%= link_to "ログイン" %>
+      </li>
+
+   <% end %>
+   
+    <% if admin_signed_in? %>
+     <li class= items>
+      <%= link_to '商品一覧' %>
+      </li>
+
+     <li class= customers>
+      <%= link_to '会員一覧' %>
+      </li>
+
+       <li class=orders>
+      <%= link_to '注文履歴一覧' %>
+      </li>
+      
+      <li class=genres>
+      <%= link_to 'ジャンル一覧' %>
+      </li>
+
+      <li class=logout>
+       <%= link_to "ログアウト" %>
+      </li>
+    
+    <% end %>
+    </ul>
+    </div>
+    </nav>
+    </header>
+    <%= notice %>
+    <%= yield %>
   </body>
 </html>
