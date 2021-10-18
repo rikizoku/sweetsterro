@@ -1,0 +1,23 @@
+<div class="col-md-8 offset-md-1">
+   <h2>会員一覧</h2>
+   <table class="table">
+      <thead>
+        <tr>
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
+  	    </thead>
+  	  	<tbody>
+  	  	  <% @customers.each do |customer| %>
+	  	  	<tr>
+	  	  	  <td><%= customer.id %></td>
+	  	  	  <td><%= customer.name %></td>
+	  	  	  <td><%= customer.email %></td>
+	  	  	  <td><%= customer.sale_status %></td>
+	  	  	</tr>
+  	  	  <% end %>
+  	  	</tbody>
+  	  </table>
+  	</div>
