@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   root :to => "homes#top"
   
   resource :customers
-
+  
+   namespace :admin do
+    resources :items
+  end
 end

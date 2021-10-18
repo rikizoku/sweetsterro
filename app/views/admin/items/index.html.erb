@@ -1,0 +1,40 @@
+
+ <table class='table table-hover table-inverse'>
+
+  <thead>
+    <tr>
+      <th></th>
+      <th>商品ID</th>
+      <th>商品名</th>
+      <th>税抜価格</th>
+      <th>ジャンル</th>
+      <th>ステータス</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+  <tbody>
+      <h1>商品一覧</h1>  <i class="far fa-plus"></i><%= link_to new_admin_item_path %>
+
+<table class='table table-hover table-inverse'>
+  <thead>
+
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.id %></td>
+        <td><%= link_to admin_item_path(item.id) do %>
+          <%= attachment_image_tag item, :image, :fill, 120, 120 %>
+          <% end %>
+        </td>
+        <td><%= number_to_currency(item.price, :unit => "￥") %></td>
+         <td><#%= item.jenre.id %></td>
+         <td><%= item.sale_status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+  </div>
+
+<%= paginate @item_page %>
