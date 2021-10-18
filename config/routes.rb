@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root :to => "homes#top"
 
   resource :customers
+
   resources :items
 
 #<!--管理者側ルーティング{Tsuyoshi}-->
