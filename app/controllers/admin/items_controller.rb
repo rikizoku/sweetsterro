@@ -1,7 +1,7 @@
 class Admin::ItemsController < ApplicationController
 
   def show
-    @item = item.find_by(id: params[:id])
+    #@items = Item.find(params[:id]) #<!--管理者用商品詳細ページへ商品情報を渡す為のもの{Tsuyoshi}-->
   end
 
 end
