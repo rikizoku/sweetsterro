@@ -12,11 +12,13 @@
 
   <body>
 
+
     <header>
+      <nav class="navbar navbar-expand-lg">
         <div class="container">
 
       <li class="LOGO">
-       <strong>"LOGO"</strong>
+       <strong>LOGO</strong>
       </li>
 
       <div class="collapse navbar-collapse" id="navbarNavDropdown"></div>
@@ -24,64 +26,64 @@
       <% if customer_signed_in? %>
 
       <li class= mypage>
-        <%= link_to "マイページ" %>
+        <button class="btn btn-default"><%= link_to "マイページ" %></button>
       </li>
 
      <li class= items>
-      <%= link_to '商品一覧' %>
+      <button class="btn btn-default"><%= link_to "商品一覧" %></button>
       </li>
 
-       <li class=Books>
-      <%= link_to 'カート' %>
+       <li class=cart>
+      <button class="btn btn-default"><%= link_to "カート" %></button>
       </li>
 
       <li class=logout>
-       <%= link_to "ログアウト" %>
+       <button class="btn btn-default"><%= link_to "ログアウト" %></button>
       </li>
 
     <% else %>
 
      <li class=about>
-        <%= link_to "About" %>
+      <button class="btn btn-default"><%= link_to "About" %></button>
       </li>
 
        <li class= items>
-      <%= link_to '商品一覧' %>
+     <button class="btn btn-default"><%= link_to "商品一覧" %></button>
       </li>
 
 
       <li calss=signup>
-       <%= link_to "新規登録" %>
+      <button class="btn btn-default"><%= link_to "新規登録" %></button>
       </li>
 
       <li class=login>
-       <%= link_to "ログイン" %>
+      <button class="btn btn-default"><%= link_to "ログイン" %></button>
       </li>
 
    <% end %>
-   
-    <% if admin_signed_in? %>
-     <li class= items>
-      <%= link_to '商品一覧' %>
-      </li>
 
-     <li class= customers>
-      <%= link_to '会員一覧' %>
-      </li>
+    <!--< if admin_signed_in? %>-->
+    <!-- <li class= items>-->
+    <!--  <= link_to '商品一覧' %>-->
+    <!--  </li>-->
 
-       <li class=orders>
-      <%= link_to '注文履歴一覧' %>
-      </li>
-      
-      <li class=genres>
-      <%= link_to 'ジャンル一覧' %>
-      </li>
+    <!-- <li class= customers>-->
+    <!--  <= link_to '会員一覧' %>-->
+    <!--  </li>-->
 
-      <li class=logout>
-       <%= link_to "ログアウト" %>
-      </li>
-    
-    <% end %>
+    <!--   <li class=orders>-->
+    <!--  <= link_to '注文履歴一覧' %>-->
+    <!--  </li>-->
+
+    <!--  <li class=genres>-->
+    <!--  <= link_to 'ジャンル一覧' %>-->
+    <!--  </li>-->
+
+    <!--  <li class=logout>-->
+    <!--   <= link_to "ログアウト" %>-->
+    <!--  </li>-->
+
+    <!--< end %>-->
     </ul>
     </div>
     </nav>
