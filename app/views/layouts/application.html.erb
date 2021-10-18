@@ -37,7 +37,9 @@
       </li>
 
       <li class=logout>
-       <%= link_to "ログアウト" %>
+
+       <button class="btn btn-default"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></button>
+
       </li>
 
     <% else %>

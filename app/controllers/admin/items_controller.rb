@@ -3,6 +3,7 @@ class Admin::ItemsController < ApplicationController
 
 
   def show
+
     #@items = Item.find(params[:id]) #<!--管理者用商品詳細ページへ商品情報を渡す為のもの{Tsuyoshi}-->
   end
 
@@ -32,5 +33,24 @@ private
   def item_params
     params.require(:item).permit(:item, :image, :item_explanation, :price, :sale_status, :created_at, :updated_at)
   end
+
+  def new
+   @item = Item.new
+  end
+
+  def create
+   @item = Item.new(item_params)
+   if @item.save
+     redirect_to admin_item_path(@item), notice: "You have created item successfully."
+   else
+     render 'new'
+   end
+  end
+
+  def item_params
+    params.require(:item).permit(:image, :item, :price, :sale_status)
+
+  end
+
 
 end
