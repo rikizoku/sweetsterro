@@ -1,4 +1,4 @@
-<!--サイドバー-->
+<!--サイドバー{Tsuyoshi}-->
  <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3">
@@ -8,13 +8,11 @@
             </ul>
           </div>
         </div>
-        <div class="span9">
-
-        </div>
       </div>
-<!--サイドバー-->
+  </div>
+<!--サイドバー{Tsuyoshi}-->
 
-<!--本文-->
+<!--本文{Tsuyoshi}-->
 <div class="container">
   <div class="row">
     <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
@@ -25,18 +23,33 @@
     </div>
   </div>
 </div>
-<!--本文-->
+<!--本文{Tsuyoshi}-->
 
-<!--新着商品4件表示-->
-<div class="container">
+<!--新着商品4件表示{Tsuyoshi}-->
+<div class="container my-5">
   <div class="row">
-    <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
-      <h1>新着商品</h1>
+    <h3 class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>新着商品</h3>
+  </div>
 
-      <!--新着商品の表示を記述-->
-
-      <%= link_to '全ての商品を見る >' %>
-    </div>
+  <div class="row mx-auto mt-3">
+    <% @items.last(4).each do |item| %>
+      <div class="mx-auto">
+        <%= link_to item_path(item) do %>
+          <%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg', fallback: 'noimage.jpg', size: '200x200', class: "rounded" %><br>
+        <% end %>
+        <div class="row mt-3">
+          <span class="red-border px-3"><%= item.name %></span>
+        </div>
+        <div class="row mt-1">
+          <span class="offset-8"><%= (item.price * 1.1).floor %> 円</span>
+    <% end %>
+        </div>
+      </div>
   </div>
 </div>
-<!--新着商品4件表示-->
+
+ <div class='d-flex justify-content-end'>
+     <%= link_to '全ての商品を見る >' %>
+ </div>
+
+ <!--新着商品4件表示{Tsuyoshi}-->

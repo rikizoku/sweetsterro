@@ -3,10 +3,15 @@ Rails.application.routes.draw do
 
   get 'homes/about' => 'homes#about'
   root :to => "homes#top"
-  
+
   resource :customers
-  
-   namespace :admin do
-    resources :items
-  end
+
+  resources :items
+
+#<!--管理者側ルーティング{Tsuyoshi}-->
+  namespace :admin do
+  resources :customers
+  resource :items
+end
+#<!--管理者側ルーティング{Tsuyoshi}-->
 end
