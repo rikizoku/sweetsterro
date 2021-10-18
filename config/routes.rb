@@ -13,4 +13,12 @@ Rails.application.routes.draw do
     resources :items
   end
 
+  resources :items
+
+#<!--管理者側ルーティング{Tsuyoshi}-->
+  namespace :admin do
+  resources :customers
+  resource :items
+end
+#<!--管理者側ルーティング{Tsuyoshi}-->
 end

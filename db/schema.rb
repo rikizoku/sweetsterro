@@ -58,7 +58,9 @@ ActiveRecord::Schema.define(version: 2021_10_17_120255) do
   create_table "items", force: :cascade do |t|
     t.integer "genre_id"
     t.string "item"
+
     t.string "image_id"
+
     t.text "item_explanation"
     t.integer "price"
     t.boolean "sale_status"
