@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   get 'homes/about' => 'homes#about'
   root :to => "homes#top"
+  
+  resource :customers
 
 end
