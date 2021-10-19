@@ -39,7 +39,7 @@
       </li>
 
       <li class=logout>
-       <button class="btn btn-default"><%= link_to "ログアウト" %></button>
+        <button class="btn btn-default"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></button>
       </li>
 
     <% else %>
@@ -54,11 +54,11 @@
 
 
       <li calss=signup>
-      <button class="btn btn-default"><%= link_to "新規登録" %></button>
+      <button class="btn btn-default"><%= link_to "新規登録", new_customer_registration_path %></button>
       </li>
 
       <li class=login>
-      <button class="btn btn-default"><%= link_to "ログイン" %></button>
+      <button class="btn btn-default"><%= link_to "ログイン", new_customer_session_path %></button>
       </li>
 
    <% end %>
