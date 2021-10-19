@@ -9,7 +9,6 @@ class Admin::ItemsController < ApplicationController
     @item_page = Item.page(params[:page]).reverse_order
   end
 
-
   def edit
     @item = Item.find(params[:id])
   end
@@ -36,8 +35,8 @@ class Admin::ItemsController < ApplicationController
 
 private
 
-  def item_params
-    params.require(:item).permit(:image, :item, :price, :sale_status)
-  end
+ def item_params
+    params.require(:item).permit(:item, :image, :item_explanation, :price, :sale_status, )
+ end
 
 end
