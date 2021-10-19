@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+  
   def show
     @customer = current_customer
   end
@@ -15,7 +16,14 @@ class CustomersController < ApplicationController
       render :edit
     end
   end
-
+  
+  def withdraw_confirm
+  end
+  
+  def withdraw
+    
+  end
+  
   private
 
   def customer_params

@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   devise_for :customers, skip: :all
   devise_scope :customers do
     get 'customers/login' =>  'devise/sessions#new', as: :new_customer_session
-    get
   end
+  
+  get 'customers/withdraw_confirm' => 'customers#withdraw_confirm' 
 
 
   get 'homes/about' => 'homes#about'
