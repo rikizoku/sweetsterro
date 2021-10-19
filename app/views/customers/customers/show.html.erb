@@ -1,0 +1,63 @@
+<div class= "container ">
+  <div class= "row py-3">
+    <h5 class= "col-3 text-center p-3 mb-2 bg-light text-dark">マイページ</h5>
+  </div>
+</div>
+
+<div class= "container ">
+  <div class= "row py-3">
+    <!--リンク未設定(なりた）-->
+    <h5 class= "col-1 font-weight-bold">登録情報</h5>
+    <button type="button" class="col-1 btn btn-success">一覧を見る</button>
+  </div>
+</div>
+
+<div class= "container">
+  <div class= "row">
+    <div class= "col-4">
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th class= "col-4">氏名</th>
+            <td class= "col-8"><%= @customer.last_name %> <%= @customer.first_name %></td>
+          </tr>
+          </tr>
+          <tr>
+            <th class= "col-4">カナ</th>
+            <td class= "col-12"><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
+          </tr>
+          <tr>
+            <th class= "col-4">郵便番号</th>
+            <td class= "col-12"><%= @customer.post_code %></td>
+          </tr>
+          <tr>
+            <th class= "col-4">住所</th>
+            <td class= "col-12"><%= @customer.address %></td>
+          </tr>
+          <tr>
+            <th class= "col-4">電話番号</th>
+            <td class= "col-12"><%= @customer.phone_number %></td>
+          </tr>
+          <tr>
+            <th class= "col-4">メールアドレス</th>
+            <td class= "col-12"><%= @customer.email %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class= "container">
+  <div class= "row py-3">
+    <!--リンク未設定(なりた）-->
+    <h5 class= "col-1 font-weight-bold">配送先</h5>
+    <button type="button" class="col-1 btn btn-primary">一覧を見る</button>
+  </div>
+</div>
+
+<div class= "container">
+  <div class= "row py-3">
+    <!--リンク未設定(なりた）-->
+    <h5 class= "col-1 font-weight-bold">注文履歴</h5>
+    <button type="button" class="col-1 btn btn-primary">一覧を見る</button>

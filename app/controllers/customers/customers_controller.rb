@@ -1,5 +1,5 @@
-class CustomersController < ApplicationController
-  
+class Customers::CustomersController < ApplicationController
+
   def show
     @customer = current_customer
   end

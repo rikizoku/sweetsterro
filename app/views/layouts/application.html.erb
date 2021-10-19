@@ -4,7 +4,7 @@
     <title>sweetsterro</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -27,7 +27,7 @@
       <% if customer_signed_in? %>
 
       <li class= mypage>
-        <button class="btn btn-default"><%= link_to "マイページ" %></button>
+        <%= link_to "マイページ",customers_path %>
       </li>
 
      <li class= items>
@@ -39,7 +39,7 @@
       </li>
 
       <li class=logout>
-       <button class="btn btn-default"><%= link_to "ログアウト", customers_path, method: :delete %></button>
+        <button class="btn btn-default"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></button>
       </li>
 
     <% else %>
@@ -54,11 +54,12 @@
 
 
       <li calss=signup>
-      <button class="btn btn-default"><%= link_to "新規登録" %></button>
+      <button class="btn btn-default"><%= link_to "新規登録", new_customer_registration_path %></button>
       </li>
 
       <li class=login>
-      <button class="btn btn-default"><%= link_to "ログイン" %></button>
+
+       <%= link_to "ログイン",new_customer_session_path %>
       </li>
 
    <% end %>
