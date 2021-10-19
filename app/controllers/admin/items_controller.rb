@@ -12,11 +12,6 @@ class Admin::ItemsController < ApplicationController
     @item_page = Item.page(params[:page]).reverse_order
   end
 
-private
-  def item_params
-    params.require(:item).permit(:item, :name, :price)
-  end
-
   def edit
     @item = Item.find(params[:id])
   end
@@ -26,12 +21,6 @@ private
     if @item.update(item_params)
       redirect_to admin_item(@item.id)
     end
-  end
-
-  private
-
-  def item_params
-    params.require(:item).permit(:item, :image, :item_explanation, :price, :sale_status, :created_at, :updated_at)
   end
 
   def new
@@ -47,10 +36,9 @@ private
    end
   end
 
-  def item_params
-    params.require(:item).permit(:image, :item, :price, :sale_status)
-
-  end
+ def item_params
+    params.require(:item).permit(:item, :image, :item_explanation, :price, :sale_status, )
+ end
 
 
 end

@@ -25,7 +25,7 @@
       <% if customer_signed_in? %>
 
       <li class= mypage>
-        <%= link_to "マイページ" %>
+        <%= link_to "マイページ",customers_path %>
       </li>
 
      <li class= items>
@@ -58,7 +58,7 @@
       </li>
 
       <li class=login>
-       <%= link_to "ログイン" %>
+       <%= link_to "ログイン",new_customer_session_path %>
       </li>
 
    <% end %>
