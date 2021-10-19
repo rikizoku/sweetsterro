@@ -6,10 +6,12 @@ Rails.application.routes.draw do
     resources :customers
   end
 
+
   devise_for :customers,skip: [:passwords], controllers: {
   registrations: "customers/registrations",
   sessions: 'customers/sessions'
 }
+
 
 
   get 'homes/about' => 'homes#about'

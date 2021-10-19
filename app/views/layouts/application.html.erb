@@ -27,7 +27,7 @@
       <% if customer_signed_in? %>
 
       <li class= mypage>
-        <button class="btn btn-default"><%= link_to "マイページ" %></button>
+        <%= link_to "マイページ",customers_path %>
       </li>
 
      <li class= items>
@@ -58,7 +58,8 @@
       </li>
 
       <li class=login>
-      <button class="btn btn-default"><%= link_to "ログイン", new_customer_session_path %></button>
+
+       <%= link_to "ログイン",new_customer_session_path %>
       </li>
 
    <% end %>
