@@ -1,0 +1,52 @@
+
+<div class= "container ">
+  <div class= "row py-3">
+    <h5 class= "col-3 text-center p-3 mb-2 bg-light text-dark">会員情報編集</h5>
+  </div>
+</div>
+
+<div class= "container">
+  <div class="row">
+    <%= form_with model: @customer, url: customers_path, local:true do |f| %>
+      <div class= "d-flex form-group">
+        <label class= "col-1 p-2">氏名</label>
+        <span class= "col-3 m-3"><%= f.text_field :first_name, autofocus: true, class: "form-control" %></span>
+        <span class= "col-3 m-3"><%= f.text_field :last_name, autofocus: true, class: "col-3 form-control" %></span>
+      </div>
+      <div class= "d-flex form-group">
+        <label class= "col-1 p-2">フリガナ</label>
+        <span class= "col-3 m-3"><%= f.text_field :first_name_kana, autofocus: true, class: "form-control" %></span>
+        <span class= "col-3 m-3"><%= f.text_field :last_name_kana, autofocus: true, class: "form-control" %></span>
+      </div>
+      <div class= "d-flex form-group">
+        <label class= "col-1 p-2">郵便番号</label>
+        <span class= "col-5 m-3"><%= f.text_field :post_code, autofocus: true, class: "form-control" %></span>
+      </div>
+      <div class= "d-flex form-group">
+        <label class= "col-1 p-2">住所</label>
+        <span class= "col-7 m-3"><%= f.text_field :address, autofocus: true, class: "form-control" %></span>
+      </div>
+      <div class= "d-flex form-group">
+        <label class= "col-1 p-2">電話番号</label>
+        <span class= "col-5 m-3"><%= f.text_field :phone_number, autofocus: true, class: "form-control" %></span>
+      </div>
+      <div class= "d-flex form-group">
+        <label class= "col-1.5 p-2">メールアドレス</label>
+        <span class= "col-5 m-3"><%= f.text_field :email, autofocus: true, class: "form-control" %></span>
+      </div>
+
+      <div class="form-group">
+        <span class= "m-3"><%= f.submit "編集内容を保存する", class: 'btn btn-success' %></span>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+    <!--PATHは適当です。退会Viewができたら変更（なりた）-->
+<div class= "container">
+  <div class="row">
+    <div class= "text-end"><%= link_to "退会する", root_path, class: 'btn btn-danger' %></div>
+  </div>
+</div>
+
+

@@ -1,5 +1,4 @@
 class Admin::ItemsController < ApplicationController
-
   def show
     #@items = Item.find(params[:id]) #<!--管理者用商品詳細ページへ商品情報を渡す為のもの{Tsuyoshi}-->
   end
@@ -16,7 +15,7 @@ class Admin::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-      redirect_to admin_item(@item.id)
+      redirect_to admin_item_path(@item.id)
     end
   end
 
@@ -38,5 +37,4 @@ private
  def item_params
     params.require(:item).permit(:item, :image, :item_explanation, :price, :sale_status, )
  end
-
 end
