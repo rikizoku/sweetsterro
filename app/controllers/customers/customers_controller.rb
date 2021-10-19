@@ -16,7 +16,14 @@ class Customers::CustomersController < ApplicationController
       render :edit
     end
   end
-
+  
+  def withdraw_confirm
+  end
+  
+  def withdraw
+    
+  end
+  
   private
 
   def customer_params
