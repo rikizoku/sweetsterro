@@ -2,6 +2,8 @@ class Customer < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   
+  
+  #退会ユーザーをログインできなくする。
   def active_for_authentication?
     super && (status == false)
   end
