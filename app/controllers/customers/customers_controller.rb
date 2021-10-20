@@ -21,17 +21,15 @@ class Customers::CustomersController < ApplicationController
     
   end
   
-  protected
-  # 退会しているかを判断するメソッド
+  
   def withdraw
-    ## 【処理内容1】 入力されたemailからアカウントを1件取得
-    @customer = Customer.find_by(email: parms[:customer][:email])
-    ## アカウントを取得できなかった場合、このメソッドを終了する
-    return if !@customer
-    ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
-    if @customer.valid_password?(params[:customer][:password])
-      ## 【処理内容3】
-    end
+    
+   
+    @customer.update(status: true)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
+   
   end
   
   private
