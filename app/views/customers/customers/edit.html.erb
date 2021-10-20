@@ -7,7 +7,17 @@
 
 <div class= "container">
   <div class="row">
-    <%= form_with model: @customer, url: customers_path, local:true do |f| %>
+    <div class = "error_explanation text-danger">
+        <% if current_customer.errors.any? %>
+          <h3><%= current_customer.errors.count %>：件のエラーがあります</h3>
+           <ul>
+              <% current_customer.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+        <% end %>
+      </div>
+    <%= form_with model: current_customer, url: customers_path, local:true do |f| %>
       <div class= "d-flex form-group">
         <label class= "col-1 p-2">氏名</label>
         <span class= "col-3 m-3"><%= f.text_field :first_name, autofocus: true, class: "form-control" %></span>
