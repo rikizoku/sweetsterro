@@ -21,6 +21,8 @@ class Admins::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to admin_item(@item.id)
+    else
+      render "edit"
     end
   end
 
