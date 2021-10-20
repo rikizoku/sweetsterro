@@ -18,7 +18,7 @@ class Customers::CustomersController < ApplicationController
     
   end
 
-  
+
   
   def withdraw
     
@@ -33,6 +33,7 @@ class Customers::CustomersController < ApplicationController
 
   def customer_params
     params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :post_code, :address, :phone_number, :email,)
+
   end
 
 end
