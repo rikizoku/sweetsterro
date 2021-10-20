@@ -6,9 +6,11 @@ Rails.application.routes.draw do
     resources :items
     resource :order
     resources :cart_items do
-     collection do
-     delete 'destroy_all', to: 'cart_items#destroy_all'
-     end
+
+    collection do
+    delete 'destroy_all', to: 'cart_items#destroy_all'
+    end
+
     end
     get 'order/confirm' => 'orders#confirm'
     get '/customers/withdraw_confirm' => 'customers#withdraw_confirm'
@@ -18,7 +20,6 @@ Rails.application.routes.draw do
 
    devise_for :admins
     namespace :admin do
-
     resources :items
     resources :customers
   end
@@ -31,5 +32,8 @@ Rails.application.routes.draw do
   get 'homes/about' => 'homes#about'
   root :to => "homes#top"
 
+  resources :photos do
+  get 'preview', on: :member
+  end
 
 end
