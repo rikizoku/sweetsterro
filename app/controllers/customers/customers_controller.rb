@@ -15,10 +15,18 @@ class Customers::CustomersController < ApplicationController
   end
 
   def withdraw_confirm
+    
   end
 
+  
+  
   def withdraw
-
+    
+   
+    @customer.update(status: true)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
   end
 
   private
