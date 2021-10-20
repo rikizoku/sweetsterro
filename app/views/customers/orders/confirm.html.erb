@@ -16,9 +16,9 @@
           </tr>
         </thead>
         <tbody>
-          <% [@orders @items].each do |order_item| %>
+          <% @order.each do |order| %>
           <tr>
-            <td><%= order_item.item %></td>
+            <td><%= order.item %></td>
             <td>test</td>
           </tr>
           <% end %>

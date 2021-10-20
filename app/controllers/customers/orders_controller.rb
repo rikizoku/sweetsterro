@@ -1,6 +1,7 @@
 class Customers::OrdersController < ApplicationController
   def confirm
-    @order_items= OrderItem.all
+    @item = Item.find(params[:item_id])
+    @order = @item.order.new(order_params)
   end
 
 end
