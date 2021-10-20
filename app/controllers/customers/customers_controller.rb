@@ -16,18 +16,18 @@ class Customers::CustomersController < ApplicationController
       render :edit
     end
   end
-  
+
   def withdraw_confirm
   end
-  
+
   def withdraw
-    
+
   end
-  
+
   private
 
   def customer_params
-    params.require(user).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :post_code, :phone_number, :email,)
+    params.require(:customer).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :post_code, :phone_number, :email,)
   end
 
 end
