@@ -9,14 +9,14 @@ Rails.application.routes.draw do
      collection do
      delete 'destroy_all', to: 'cart_items#destroy_all'
      end
+   end
     get 'order/confirm' => 'orders#confirm'
     get '/customers/withdraw_confirm' => 'customers#withdraw_confirm'
     patch '/customers/withdraw' => 'customers#withdraw'
-    
   end
 
    devise_for :admins
-    namespace :admin do
+    namespace :admins do
 
     resources :items
     resources :customers

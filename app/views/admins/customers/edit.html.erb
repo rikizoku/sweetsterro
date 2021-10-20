@@ -1,0 +1,70 @@
+<div class= "container">
+ <div class="col-3 text-center p-3 mb-2 bg-light text-dark">
+    <h5>
+       <%= @customer.last_name %>
+ 	   <%= @customer.first_name %>
+       さんの会員情報編集
+    </h5>
+ </div>
+</div>
+
+<div class= "container">
+ <div class="row">
+
+   <%= form_with model:@customer, url: admins_customer_path(@customer), local:true do |f| %>
+
+   <div class="d-flex form-group">
+      <span class= "col-3 p-2"><%= f.label :会員id %></span>
+      <span class= "col-3 m-2"><%= f.label @customer.id %></span>
+   </div>
+
+   <div class="d-flex form-group">
+       <span class= "col-3 p-2"><%= f.label :氏名 %></span>
+       <span class= "col-3 m-2"><%= f.text_field :last_name, class: " form-control" %></span>
+       <span class= "col-3 m-2"><%= f.text_field :first_name, class: "form-control" %></span>
+   </div>
+
+    <div class="d-flex form-group">
+       <span class= "col-3 p-2"><%= f.label :フリガナ %></span>
+       <span class= "col-3 m-2"><%= f.text_field :last_name_kana, class: "form-control" %></span>
+       <span class= "col-3 m-2"><%= f.text_field :first_name_kana, class: "form-control" %></span>
+    </div>
+
+   <div class="d-flex form-group">
+      <span class= "col-3 p-2"><%= f.label :郵便番号 %></span>
+      <span class= "col-3 m-2"><%= f.text_field :post_code, class: "form-control" %></span>
+   </div>
+
+   <div class="d-flex form-group">
+       <span class= "col-3 p-2"><%= f.label :住所 %></span>
+       <span class= "col-7 m-2"><%= f.text_field :address, class: "form-control" %></span>
+   </div>
+
+   <div class="d-flex form-group">
+       <span class= "col-3 p-2"><%= f.label :電話番号 %></span>
+       <span class= "col-3 m-2"><%= f.text_field :phone_number, class: "form-control" %></span>
+   </div>
+
+   <div class="d-flex form-group">
+       <span class= "col-3 p-2"><%= f.label :メールアドレス %></span>
+       <span class= "col-3 m-2"><%= f.email_field :email, class: "form-control" %></span>
+   </div>
+
+   <div class="d-flex form-group">
+      <span class= "col-3 p-2"><%= f.label :会員ステータス %></span>
+    <div class="form-check">
+      <%= f.radio_button :is_enabled, :true %>
+      <%= f.label :is_enabled, "有効" %>
+      <%= f.radio_button :is_enabled, :false %>
+      <%= f.label :is_enabled, "退会" %>
+    </div>
+   </div>
+
+      <div class="mx-auto col-6">
+          <%= f.submit "変更を保存", class: "btn btn-primary col-4" %>
+      </div>
+
+    <% end %>
+
+ </div>
+</div>
