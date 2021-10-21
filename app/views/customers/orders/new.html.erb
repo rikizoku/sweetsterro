@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="offset-1">
-      <%#= flash[:order_new] %>
+      <%= flash[:order_new] %>
       <h3 class="col-3 text-center p-3 mb-2 bg-light text-dark">注文情報入力</h3>
     </div>
   </div>
@@ -14,13 +14,14 @@
         <strong class="px-3">支払方法</strong>
       </div>
 
-      <%#= form_tag(orders_path, method: :post) do %>
+      <%= form_with(model: Order.new, url: orders_path, method: :post) do |f| %>
         <div class="form-check mt-3">
-          <%#= radio_button_tag :payment, :クレジットカード %>
-          <%#= label_tag :payment, "クレジットカード", {value: :"クレジットカード", style: "display: inline-block;"} %><br>
-          <%#= radio_button_tag :payment, :銀行振込 %>
-          <%#= label_tag :payment, "銀行振込", {value: :"銀行振込", style: "display: inline-block;"} %>
+          <%= radio_button_tag :payment_method, :クレジットカード %>
+          <%= label_tag :payment_method, "クレジットカード", {value: :"クレジットカード", style: "display: inline-block;"} %><br>
+          <%= radio_button_tag :payment_method, :銀行振込 %>
+          <%= label_tag :payment_method, "銀行振込", {value: :"銀行振込", style: "display: inline-block;"} %>
         </div>
+
 <!-- 支払先 -->
 
 <!-- お届け先 -->
@@ -29,55 +30,52 @@
         </div>
 
         <div class="form-check mt-3">
-          <%# address = current_customer.post_code + current_customer.address + current_customer.last_name + current_customer.first_name %>
-          <%#= radio_button_tag :select, :my_address %>
-          <%#= label_tag :select, "ご自身の住所", {value: :my_address, style: "display: inline-block;"} %>
-          <%#= address %><br>
-          <%#= radio_button_tag :select, :select_address %>
-          <%#= select_tag :address, options_for_select(@address.map do |ship|
-          ["〒" + ship.post_code + "  " + ship.address + "  " + ship.last_name + ship.first_name, ship.id]
-            end), {include_blank: '配送先を選択'} %>
+          <% address = current_customer.post_code + current_customer.address + current_customer.last_name + current_customer.first_name %>
+          <%= radio_button_tag :select, :my_address %>
+          <%= label_tag :select, "ご自身の住所",{value: :my_address, style: "display: inline-block;"} %><br>
+          <%= address %><br>
+          <%= radio_button_tag :select, :select_address %>
+           <%= select_tag :address, options_for_select(@addresses.map do |address|
+          ["〒" + address.postal_code + "  " + address.address + "  " + address.name, address.id]end), {include_blank: '配送先を選択'} %>
+
+         <%#= f.collection_select :address_id, @addresses, :id, :name %>
         </div>
-
-        <div class="row mt-5">
-          <%#= submit_tag "確認画面へ進む", class: "btn btn-outline-danger ml-auto" %>
-        </div>
-      <%# end %>
-<!-- お届け先 -->
+        <!-- お届け先 -->
 
 
-    </div>
-
-    <div class="offset-1 col-3">
-
-<!-- 新しいお届け先 -->
-      <div class="row">
+        <!-- 新しいお届け先 -->
+      <div class="offset-2">
         <strong class="px-3">新しいお届け先</strong>
       </div>
 
-        <%#= form_with mode :@address, url:new_order_path, local :true do |f| %>
+        <%= form_with model: @order, url: new_order_path, local: true do |f| %>
 
-        <div class="form-group row mt-3">
-          <%#= f.text_field :post_code, placeholder: "郵便番号", class: "form-control offset-1 col-10" %>
+        <div class="d-flex form-group mt-5">
+          <span class= "col-3 p-1"><%= f.label :郵便番号（ハイフンなし） %></span>
+          <%= f.text_field :post_code, placeholder: "郵便番号", class: "form-control offset-1 col-10" %>
         </div>
 
-        <div class="form-group row">
-          <%#= f.text_field :address, placeholder: "住所", class: "form-control offset-1 col-10" %>
+        <div class="d-flex form-group">
+          <span class= "col-3 p-2"><%= f.label :住所 %></span>
+          <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "form-control offset-1 col-10" %>
         </div>
 
-        <div class="form-group row">
-          <%#= f.text_field :last_name, placeholder:"姓", class: "form-control offset-1 col-5" %>
-          <%#= f.text_field :first_name, placeholder:"名", class: "form-control col-5" %>
+        <div class="d-flex form-group">
+          <span class= "col-3 p-2"><%= f.label :宛名 %></span>
+          <%= f.text_field :name, placeholder:"令和道子", class: "form-control offset-1 col-5" %>
         </div>
 <!-- 新しいお届け先 -->
 
         <div class="row">
-          <%#= f.submit '確認画面へ進む', class: "btn btn-sm btn-outline-danger ml-auto" %>
+          <%= f.submit '確認画面へ進む', class: "btn btn-primary" %>
         </div>
 
-        <%# end %>
+        <% end %>
+    </div>
+      <% end %>
+
+
     </div>
 
 
-  </div>
 </div>

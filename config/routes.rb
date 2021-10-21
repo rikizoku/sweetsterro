@@ -9,11 +9,15 @@ Rails.application.routes.draw do
       end
     end
     resources :cart_items do
+
     collection do
     delete 'destroy_all', to: 'cart_items#destroy_all'
     end
+
     end
+
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+
     get '/customers/withdraw_confirm' => 'customers#withdraw_confirm'
     patch '/customers/withdraw' => 'customers#withdraw'
 
@@ -24,9 +28,7 @@ Rails.application.routes.draw do
     namespace :admins do
     resources :items
     resources :customers
-    resources :genres, only: [:index, :edit, :create, :update]
-    get '/' => 'homes#top'
-    
+
   end
 
   devise_for :customers,skip: [:passwords], controllers: {
