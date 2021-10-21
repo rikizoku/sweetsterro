@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     end
 
     end
+
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+
     get '/customers/withdraw_confirm' => 'customers#withdraw_confirm'
     patch '/customers/withdraw' => 'customers#withdraw'
 
