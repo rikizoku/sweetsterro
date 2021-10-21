@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     delete 'destroy_all', to: 'cart_items#destroy_all'
     end
     end
-    resources :addresses
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     get '/customers/withdraw_confirm' => 'customers#withdraw_confirm'
     patch '/customers/withdraw' => 'customers#withdraw'
 
