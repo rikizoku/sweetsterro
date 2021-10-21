@@ -1,7 +1,9 @@
 class Admins::ItemsController < ApplicationController
-  def show
 
-    #@items = Item.find(params[:id]) #<!--管理者用商品詳細ページへ商品情報を渡す為のもの{Tsuyoshi}-->
+
+
+  def show
+    @item = Item.find(params[:id])
   end
 
   def index
@@ -18,13 +20,11 @@ class Admins::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-      redirect_to admin_item(@item.id)
+      redirect_to admins_item_path(@item.id)
     else
       render "edit"
     end
   end
-
-
 
   def new
    @item = Item.new
@@ -33,7 +33,7 @@ class Admins::ItemsController < ApplicationController
   def create
    @item = Item.new(item_params)
    if @item.save
-     redirect_to admin_item_path(@item), notice: "You have created item successfully."
+     redirect_to admins_item_path(@item), notice: "You have created item successfully."
    else
      render 'new'
    end

@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   scope module: 'customers' do
     resource :customers, except: :create
     resources :items
-    resource :order
+    resources :orders do
+      collection do
+        post :confirm
+      end
+    end
     resources :cart_items do
 
     collection do
@@ -12,16 +16,17 @@ Rails.application.routes.draw do
     end
 
     end
-    get 'order/confirm' => 'orders#confirm'
     get '/customers/withdraw_confirm' => 'customers#withdraw_confirm'
     patch '/customers/withdraw' => 'customers#withdraw'
 
   end
 
+
    devise_for :admins
     namespace :admins do
     resources :items
     resources :customers
+    
   end
 
   devise_for :customers,skip: [:passwords], controllers: {
