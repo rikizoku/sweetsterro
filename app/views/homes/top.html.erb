@@ -32,7 +32,8 @@
   </div>
 
   <!--新着商品4件表示{Tsuyoshi}-->
-
+<table>
+  <tbody>
   <div class="row mx-auto mt-3">
     <% @items.last(4).each do |item| %>
       <div class="mx-auto">
@@ -49,6 +50,8 @@
       </div>
   </div>
 </div>
+  <tbody>
+<table>
 
  <div class='text-end'>
      <%= link_to '全ての商品を見る >' %>

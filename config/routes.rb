@@ -19,10 +19,12 @@ Rails.application.routes.draw do
 
   end
 
+
    devise_for :admins
     namespace :admins do
     resources :items
     resources :customers
+    
   end
 
   devise_for :customers,skip: [:passwords], controllers: {

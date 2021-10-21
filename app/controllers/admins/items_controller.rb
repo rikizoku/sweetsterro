@@ -1,7 +1,9 @@
 class Admins::ItemsController < ApplicationController
-  def show
 
-    #@items = Item.find(params[:id]) #<!--管理者用商品詳細ページへ商品情報を渡す為のもの{Tsuyoshi}-->
+
+
+  def show
+    @item = Item.find(params[:id])
   end
 
   def index
@@ -23,8 +25,6 @@ class Admins::ItemsController < ApplicationController
       render "edit"
     end
   end
-
-
 
   def new
    @item = Item.new
