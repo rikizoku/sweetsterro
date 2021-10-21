@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  # 会員側ルート
   scope module: 'customers' do
     resource :customers, except: :create
     resources :items
