@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  # 会員側ルート
   scope module: 'customers' do
     resource :customers, except: :create
     resources :items
@@ -26,7 +25,7 @@ Rails.application.routes.draw do
     namespace :admins do
     resources :items
     resources :customers
-    
+
   end
 
   devise_for :customers,skip: [:passwords], controllers: {
