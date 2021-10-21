@@ -1,4 +1,12 @@
 ja:
+  enums:
+    order:
+      status:
+        waiting: "入金待ち"
+        paid_up: "入金確認"
+        making: "制作中"
+        preparing: "発送準備中"
+        shipped: "発送済み"
   activerecord:
     attributes:
         customer:

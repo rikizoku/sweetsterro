@@ -1,14 +1,16 @@
 class Customers::OrdersController < ApplicationController
+
+  def new
+  end
+
   def confirm
     @cart_items = current_customer.cart_items.all
-    @order = Order.new(order_params)
+    @order = Order.new
     render :new if @order.invalid?
   end
 
-  private
-
-  def order_params
-  params.require(:order).permit(:name, :address, :total_payment)
+  def show
+    @order = Order.find(params[:id])
   end
 
 
