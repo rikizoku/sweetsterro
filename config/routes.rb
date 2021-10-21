@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  # 会員側ルート
   scope module: 'customers' do
     resource :customers, except: :create
     resources :items
@@ -10,12 +9,11 @@ Rails.application.routes.draw do
       end
     end
     resources :cart_items do
-
     collection do
     delete 'destroy_all', to: 'cart_items#destroy_all'
     end
-
     end
+    resources :addresses
     get '/customers/withdraw_confirm' => 'customers#withdraw_confirm'
     patch '/customers/withdraw' => 'customers#withdraw'
 
@@ -26,6 +24,8 @@ Rails.application.routes.draw do
     namespace :admins do
     resources :items
     resources :customers
+    resources :genres, only: [:index, :edit, :create, :update]
+    get '/' => 'homes#top'
     
   end
 

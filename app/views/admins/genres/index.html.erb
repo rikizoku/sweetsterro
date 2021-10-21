@@ -1,0 +1,31 @@
+<div class="container  px-5 px-sm-0">
+
+
+      <h3>ジャンル一覧・追加</h3>
+       <%= render 'form', genre: @genre %>
+
+
+
+
+  <div class="row ">
+       <table class="table px-5 mt-5">
+        <thead class="thead-dark">
+          <tr>
+            <th>ジャンル</th>
+          </tr>
+        </thead>
+
+          <% @genres.each do |genre| %>
+	  	   	<tr>
+            <td class="col-3 w-25"><%= genre.genre_name %></td>
+            <td class="col-3"><%= link_to "編集する", admins_genres_path, class:"btn btn-primary" %></td>
+	  	  	</tr>
+  	  	  <% end %>
+  	  	</tbody>
+      </table>
+
+    </div>
+
+
+
+</div>

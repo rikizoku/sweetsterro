@@ -10,4 +10,6 @@ class Order < ApplicationRecord
     shipped: 4
   }
 
+  enum payment_method: [:クレジットカード, :銀行振込]
+
 end
