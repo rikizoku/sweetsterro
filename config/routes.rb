@@ -10,9 +10,11 @@ Rails.application.routes.draw do
       end
     end
     resources :cart_items do
+
     collection do
     delete 'destroy_all', to: 'cart_items#destroy_all'
     end
+
     end
     get '/customers/withdraw_confirm' => 'customers#withdraw_confirm'
     patch '/customers/withdraw' => 'customers#withdraw'
