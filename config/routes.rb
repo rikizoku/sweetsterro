@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
    devise_for :admins
-    namespace :admin do
+    namespace :admins do
     resources :items
     resources :customers
   end
@@ -30,8 +30,6 @@ Rails.application.routes.draw do
   get 'homes/about' => 'homes#about'
   root :to => "homes#top"
 
-  resources :photos do
-  get 'preview', on: :member
-  end
+
 
 end
