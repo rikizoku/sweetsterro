@@ -1,24 +1,38 @@
-# README test
+# ながのCAKE
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+長野県にある小さな洋菓子店「ながのCAKE」
+元々近隣住民が顧客だったが、昨年始めたInstagramから人気となり、全国から注文が来るよう になった。 InstagramのDMやメールで通販の注文を受けていたが、情報管理が煩雑になってきたため、管 理機能を含んだECサイトを開設
+![22239629_s](https://user-images.githubusercontent.com/88571532/138222176-27f5d9ef-3d03-4ce8-9a6c-a9b927a65655.jpg)
 
-Things you may want to cover:
 
-* Ruby version
+## ◆通販について
 
-* System dependencies
+ - 通販では注文に応じて製作する受注生産型としている。
+ - 現在通販での注文量は十分に対応可能な量のため、1日の受注量に制限は設けない。
+ - 送料は1配送につき全国一律800円。
+ - 友人や家族へのプレゼントなど、注文者の住所以外にも商品を発送できる。
+- 支払方法はクレジットカード、銀行振込から選択できる。
 
-* Configuration
+## ◆用語の定義
 
-* Database creation
+## ◆各種ステータス
+注文〜発送まで、下記のステータスで注文及び注文内容を管理する。
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## ◆会員側のフロー
 
-* Deployment instructions
+You can rename the current file by clicking the file name in the navigation bar or by clicking the **Rename** button in the file explorer.
 
-* ...
+## ◆店側のフロー
+
+会員の注文確定後、商品の製作から発送までのフロー
+
+## ◆実装機能
+
+下記に実装要件を提示する。
+
+
+#### [会員側実装機能]
+
+#### [管理者側(店側)実装機能]
