@@ -4,10 +4,19 @@
   </div>
 </div>
 
+<% if @item.errors.any? %>
+  <h3><%= @item.errors.count %>：件のエラーがあります</h3>
+    <ul>
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+<% end %>
+
 <div class= "container ">
   <div class= "row py-3">
     <div class= "mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
-      <%= form_with model:@item, url: admin_item_path(@item), local:true do |f| %>
+      <%= form_with model:@item, url: admins_item_path(@item), local:true do |f| %>
 
         <div class= "mb-4 form-group">
           <label class= "col-2 p-2">商品画像</label>
