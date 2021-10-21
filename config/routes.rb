@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     namespace :admins do
     resources :items
     resources :customers
-    
+    get '/' => 'homes#top'
   end
 
   devise_for :customers,skip: [:passwords], controllers: {
