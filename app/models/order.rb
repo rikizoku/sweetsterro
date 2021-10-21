@@ -4,5 +4,4 @@ class Order < ApplicationRecord
 
   enum payment_method: [:クレジットカード, :銀行振込]
 
-
 end

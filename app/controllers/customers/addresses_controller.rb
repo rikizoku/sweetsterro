@@ -1,5 +1,11 @@
 class Customers::AddressesController < ApplicationController
 
+  def edit
+  end
+  
+  def update
+  end
+
    def create
     @address = Address.new(address_params)
     @address.customer_id = current_customer.id
