@@ -27,9 +27,8 @@ class Customers::OrdersController < ApplicationController
  #注文情報入力ページ
 
    def confirm
-    @cart_items = current_customer.cart_items.all
-    @order = Order.new
-    render :new if @order.invalid?
+
+    @total = @cart_items.inject(0) { |sum, item, order| sum + item.cart_items_price + order[:postage] }
    end
 
 
