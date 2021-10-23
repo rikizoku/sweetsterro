@@ -28,20 +28,19 @@ class Admins::ItemsController < ApplicationController
 
   def new
    @item = Item.new
+   @genres = Genre.all
   end
 
   def create
    @item = Item.new(item_params)
-   if @item.save
-     redirect_to admins_item_path(@item), notice: "You have created item successfully."
-   else
-     render 'new'
-   end
+   @item.save
+   redirect_to admins_item_path(@item)
+ 
   end
 
   private
   def item_params
-    params.require(:item).permit(:item, :image, :item_explanation, :price, :sale_status, :created_at, :updated_at)
+    params.require(:item).permit(:genre_id, :item, :image, :item_explanation, :price, :sale_status, :created_at, :updated_at)
   end
 
 end
