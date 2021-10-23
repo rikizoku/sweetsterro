@@ -2,7 +2,7 @@
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h3>商品新規登録</h3>
-      <%= form_with model:@item, url: admins_items_path, local:true do |f| %>
+      <%= form_with model:@item, url:'/admins/items', local:true do |f| %>
 
       <div>
          <%= f.label :商品画像 %>
@@ -18,7 +18,7 @@
       </div>
       <div>
         <%= f.label :ジャンル %>
-    　   <!--%= f.collection_select :genre_id,items.all, :genre_id, :genre_id, include_blank: "-- 選択して下さい --" %>-->
+    　   <%= f.collection_select :genre_id, @genres, :id, :genre_name, include_blank: "-- 選択して下さい --" %>
       </div>
       <div>
 
