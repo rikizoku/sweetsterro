@@ -2,6 +2,7 @@ class Customers::ItemsController < ApplicationController
 
 def show
     @item = Item.find(params[:id])
+    @cart_item = current_customer.cart_items.new
 end
 
 def index
