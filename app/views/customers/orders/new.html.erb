@@ -35,8 +35,9 @@
           <%= label_tag :select, "ご自身の住所",{value: :my_address, style: "display: inline-block;"} %><br>
           <%= address %><br>
           <%= radio_button_tag :select, :select_address %>
-           <%= select_tag :address, options_for_select(@addresses.map do |address|
-          ["〒" + address.postal_code + "  " + address.address + "  " + address.name, address.id]end), {include_blank: '配送先を選択'} %>
+          登録住所から選択<br>
+          <%= select_tag :address, options_for_select(@addresses.map do |address|
+          ["〒" + address.postal_code + "  " + address.address + "  " + address.name, address.id]end), {selected: 1} %>
 
          <%#= f.collection_select :address_id, @addresses, :id, :name %>
         </div>
@@ -44,13 +45,15 @@
 
 
         <!-- 新しいお届け先 -->
-      <div class="offset-2">
-        <strong class="px-3">新しいお届け先</strong>
+      <div class="row mt-5">
+        <span class="d-flex">
+           <%= radio_button_tag :select, :address %><p>新しいお届け先</p>
+        </span>
       </div>
 
         <%= form_with model: @order, url: new_order_path, local: true do |f| %>
 
-        <div class="d-flex form-group mt-5">
+        <div class="d-flex form-group">
           <span class= "col-3 p-1"><%= f.label :郵便番号（ハイフンなし） %></span>
           <%= f.text_field :post_code, placeholder: "郵便番号", class: "form-control offset-1 col-10" %>
         </div>
@@ -73,6 +76,7 @@
         <% end %>
     </div>
       <% end %>
+
 
 
     </div>
