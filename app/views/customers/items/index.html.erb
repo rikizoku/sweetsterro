@@ -13,7 +13,7 @@
           <% end %>
         </td>
 
-        <td><%= link_to name, item_path(item.id) %></td>
+        <td><%= link_to item, item_path(item.id) %></td>
         <td><%= number_to_currency(item.price, :unit => "￥") %></td>
       </tr>
     <% end %>
