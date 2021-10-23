@@ -1,6 +1,5 @@
 class Genre < ApplicationRecord
 
-    #has_many :items, dependent: :destroy
-    belongs_to :items
-
+    has_many :items, dependent: :destroy
+    
 end

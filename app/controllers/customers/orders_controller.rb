@@ -28,6 +28,7 @@ class Customers::OrdersController < ApplicationController
  #注文情報入力ページ
 
    def confirm
+
     @cart_items = current_customer.cart_items.all
     @order = Order.new(order_params)
     @address = current_customer.addresses.first
@@ -47,7 +48,9 @@ class Customers::OrdersController < ApplicationController
        @order.address = params[:order][:address]
        @order.postal_code = params[:order][:post_code]
     end
-       #render :new if @order.invalid?
+   
+     @total = @cart_items.inject(0) { |sum, item, order| sum + item.cart_items_price + order[:postage] }
+
    end
 
 
