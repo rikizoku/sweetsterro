@@ -1,6 +1,6 @@
 <div class="col-md-8 offset-md-1">
    <h2>会員一覧</h2>
-   <table class="table">
+   <table class="table-bordered">
     <thead class="thead-dark">
       <tr>
         <th>会員ID</th>
@@ -19,7 +19,11 @@
 	  	    <% end %>
 	  	  </td>
 	  	  <td><%= customer.email %></td>
-	  	  <td><%= customer.status %></td>
+	  	  <td><% if customer.status == true %>
+	  	    <i class=''>有効</i>
+	  	    <% else %>
+	  	   <i> 退会済み</i>
+	  	    <% end %></td>
 	  	</tr>
   	   <% end %>
   	 </tbody>
