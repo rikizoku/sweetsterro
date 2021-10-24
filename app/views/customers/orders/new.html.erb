@@ -37,7 +37,10 @@
           <%= f.radio_button :select, 2 %>
           登録住所から選択<br>
 
-         <%= f.collection_select :address_id, @addresses, :id, :name, prompt:  @order.postal_code, class:"form-control form-control-sm col-lg-5" %>
+         <div class="form-group">
+          <label class="control-label">
+          <select class="form-control"><%= f.collection_select :address_id, @addresses, :id, :name, prompt:  @order.postal_code, class:"form-control form-control-sm col-lg-5" %>
+          </label>
         </div>
         <!-- お届け先 -->
 

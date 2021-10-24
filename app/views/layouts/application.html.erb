@@ -70,15 +70,15 @@
   </li>
 
   <li class=orders>
-  <%= link_to '注文履歴一覧' %>
+  <%= link_to '注文履歴一覧', admins_path %>
   </li>
 
   <li class=genres>
   <%= link_to 'ジャンル一覧', admins_genres_path %>
   </li>
 
-  <li class=logout>-->
-  <%= link_to "ログアウト" %>
+  <li class=logout>
+  <%= link_to "ログアウト",destroy_admin_session_path, method: :delete %>
   </li>
 
   <% end %>
