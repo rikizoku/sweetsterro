@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :orders do
       collection do
         post :confirm
+        get :complete
       end
     end
     resources :cart_items do
@@ -24,7 +25,9 @@ Rails.application.routes.draw do
   end
 
 
-   devise_for :admins
+   devise_for :admins, controllers: {
+  sessions: "admins/sessions"
+}
     namespace :admins do
     resources :items
     resources :customers

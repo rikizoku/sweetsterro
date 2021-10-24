@@ -13,7 +13,7 @@
   <thead>
      <h1>商品一覧</h1>
     <tr>
-      <th></th>
+      
       <th>商品ID</th>
       <th>商品名</th>
       <th>税抜価格</th>
@@ -31,7 +31,7 @@
           <% end %>
         </td>
         <td><%= number_to_currency(item.price, :unit => "￥") %></td>
-         <td><#%= item.jenre.id %></td>
+         <td><%= item.genre.genre_name %></td>
          <td><%= item.sale_status %></td>
       </tr>
     <% end %>
