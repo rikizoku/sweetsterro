@@ -1,7 +1,7 @@
-<div class="col-md-8 offset-md-1">
-   <h2>会員一覧</h2>
+<div class="col-md-5 offset-md-3">
+   <h4 class="w-25 p-1 text-center" style="background-color: #eee;">会員一覧</h4>
    <table class="table">
-    <thead class="thead-dark">
+    <thead class="thead" style="background-color: #eee;">
       <tr>
         <th>会員ID</th>
         <th>氏名</th>
@@ -19,10 +19,14 @@
 	  	    <% end %>
 	  	  </td>
 	  	  <td><%= customer.email %></td>
-	  	  <td><%= customer.status %></td>
+	  	  <td><% if customer.status == false %>
+	  	    <h7 class='ture' style="color :limegreen;"><strong>有効</strong></h7
+	  	    <% else %>
+	  	    <h7 class='false' style="color :#d3d3d3;"><strong>退会中</strong></h7>
+	  	    <% end %></td>
 	  	</tr>
   	   <% end %>
   	 </tbody>
   </table>
-  <%#= paginate @customer_page, left: 3 %>
+  <%= paginate @customers, left: 3 %>
 </div>
