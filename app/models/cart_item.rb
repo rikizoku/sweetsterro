@@ -5,5 +5,6 @@ class CartItem < ApplicationRecord
   def cart_items_price
   (item.price*1.1) * quantity
   end
-  
+
+validates :quantity , presence: true
 end

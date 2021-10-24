@@ -6,7 +6,7 @@ def index
 end
 
 def show
-  
+
 end
 
 def create
@@ -17,11 +17,12 @@ def create
   else
   @address_new = Address.new
   @addresses = current_customer.addresses
-  render :index  
+  render :index
   end
 end
 
 def edit
+  @address = Address.find(params[:id])
 
 end
 
@@ -30,7 +31,7 @@ def update
   address.update(address_params)
   redirect_to addresses_path
 end
-  
+
    def destroy
     @address = Address.find(params[:id])
     @address.destroy

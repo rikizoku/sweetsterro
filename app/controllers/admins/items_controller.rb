@@ -1,4 +1,5 @@
 class Admins::ItemsController < ApplicationController
+  before_action :authenticate_admin!
 
   def show
     @item = Item.find(params[:id])
@@ -8,7 +9,6 @@ class Admins::ItemsController < ApplicationController
     @items = Item.all
     @item_page = Item.page(params[:page]).reverse_order
   end
-
 
   def edit
     @item = Item.find(params[:id])
@@ -32,7 +32,7 @@ class Admins::ItemsController < ApplicationController
    @item = Item.new(item_params)
    @item.save
    redirect_to admins_item_path(@item)
- 
+
   end
 
   private

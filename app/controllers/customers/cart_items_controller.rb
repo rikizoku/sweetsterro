@@ -3,14 +3,6 @@ before_action :authenticate_customer!
 
   def create
     @cart_item = current_customer.cart_items.new(cart_item_params)
-    @cart_items = current_customer.cart_items.all
-    @cart_items.each do |cart_item|
-    if cart_item.item_id == @cart_item.item_id
-      new_quantity = cart_item.quantity + @cart_item.quantity
-      cart_item.update_attribute(:quantity, new_quantity)
-      @cart_item.delete
-    end
-  end
     @cart_item.save
     redirect_to cart_items_path
   end
@@ -19,20 +11,23 @@ before_action :authenticate_customer!
     @cart_items = current_customer.cart_items
   end
 
+  def update
+    cart_item = CartItem.find(params[:id])
+    cart_item.update(cart_item_params)
+    redirect_to cart_items_path
+  end
+
   def destroy_all
-    @cart_items = current_customer.cart_items
-    @cart_items.destroy_all
+    cart_items = current_customer.cart_items
+    cart_items.destroy_all
     redirect_to cart_items_path
   end
 
   def destroy
-    @cart_items = current_customer.cart_items
-    @cart_items.destroy
+    cart_item = CartItem.find(params[:id])
+    cart_item.destroy
     redirect_to cart_items_path
   end
-
-
-
 
 private
 
