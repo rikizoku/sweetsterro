@@ -27,7 +27,7 @@
           <%= form_with model: cart_item, local: true do |f| %>
            <%= f.number_field :quantity %>
            <%= f.submit "変更", class: "btn-success" %>
-           <% end %>
+          <% end %>
         </td>
 
         <td><%= cart_item.cart_items_price %> </td>
