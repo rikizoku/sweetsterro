@@ -4,7 +4,20 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
+
 	    ジャンル検索
+	     <tbody>
+          <%# @genres.each do |genre| %>
+	  	   	<tr>
+            <td>
+            </td>
+            <td><%#= genre.genre_name %></td>
+          　<td><%#= link_to "詳細", admins_genre_path, class:"btn btn-primary" %></td>
+	  	  	</tr>
+  	  	  <%# end %>
+  	  	</tbody>
+
+
             </ul>
           </div>
         </div>
@@ -32,9 +45,8 @@
   </div>
 
   <!--新着商品4件表示{Tsuyoshi}-->
-<table>
   <tbody>
-  <div class="row mx-auto mt-3">
+  <div class="d-flex">
     <% @items.last(4).each do |item| %>
       <div class="mx-auto">
         <%= link_to item_path(item) do %>
@@ -49,12 +61,14 @@
         </div>
       </div>
   </div>
-</div>
-  <tbody>
-<table>
 
- <div class='text-end'>
+  <div class='text-end'>
      <%= link_to '全ての商品を見る >',items_path %>
  </div>
+
+</div>
+  <tbody>
+
+
 
  <!--新着商品4件表示{Tsuyoshi}-->
