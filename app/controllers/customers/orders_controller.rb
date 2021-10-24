@@ -30,19 +30,6 @@ class Customers::OrdersController < ApplicationController
       @address = Address.new
       render :new
     end
-    # session[:payment_method] = params[:payment_method]
-    # if params[:select] == "select_address"
-    #   session[:address] = params[:address]
-    # elsif params[:select] == "my_address"
-    #   session[:address] ="〒" + current_customer.post_code+current_customer.address+current_customer.last_name+current_customer.first_name
-    # end
-    # if session[:address].present? && session[:payment_method].present?
-    #   @order.save
-    #   redirect_to confirm_orders_path
-    # else
-    #   flash[:order_new] = "支払方法とお届け先を選択して下さい"
-    #   redirect_to new_order_path
-    # end
   end
  #注文情報入力ページ
 
