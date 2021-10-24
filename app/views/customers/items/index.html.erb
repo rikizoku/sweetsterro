@@ -1,23 +1,18 @@
 
 <div class='container'>
    <div class='row'>
- <div class='col-md-8 offset-md-4'>
-      <h2>商品一覧（全<%= @items.count %>件)</h2>
-<div class="d-flex flex-wrap p-4">
-   <% @items.each do |item| %>
 
-   <span class = p-4>
-        <%= attachment_image_tag item, :image, :fill, 120, 120 %></br>
-        <%= link_to item_path(item.id) do %><%= item.item %> <% end %></br>
-        <%= number_to_currency(item.price) %>
-        </div>
-        </span>
-
-    <% end %>
+       <h2>商品一覧（全<%= @items.count %>件)</h2>
+       <div class= 'd-flex align-content-stretch flex-row mb-4'>
+           <% @items.each do |item| %>
+             <span class= "p-4">
+              <%= attachment_image_tag item, :image, :fill, 120, 120 %><br />
+              <%= link_to item_path(item.id) do %><%= item.item %> <% end %><br />
+              <%= number_to_currency(item.price, :unit => "￥") %>
+             </span>
+           <% end %>
+       </div>
     </div>
-
-</div>
-</div>
-</div>
+  </div>
 
 <%= paginate @item_page %>
