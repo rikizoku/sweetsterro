@@ -14,7 +14,7 @@
         <strong class="px-3">支払方法</strong>
       </div>
 
-      <%= form_with(model: Order.new, url: orders_path, method: :post) do |f| %>
+      <%= form_with model:@order, url: confirm_orders_path, method: :post, local:true do |f| %>
         <div class="form-check mt-3">
           <%= radio_button_tag :payment_method, :クレジットカード %>
           <%= label_tag :payment_method, "クレジットカード", {value: :"クレジットカード", style: "display: inline-block;"} %><br>
@@ -31,15 +31,13 @@
 
         <div class="form-check mt-3">
           <% address = current_customer.post_code + current_customer.address + current_customer.last_name + current_customer.first_name %>
-          <%= radio_button_tag :select, :my_address %>
+          <%= f.radio_button :select, 1 %>
           <%= label_tag :select, "ご自身の住所",{value: :my_address, style: "display: inline-block;"} %><br>
           <%= address %><br>
-          <%= radio_button_tag :select, :select_address %>
+          <%= f.radio_button :select, 2 %>
           登録住所から選択<br>
-          <%= select_tag :address, options_for_select(@addresses.map do |address|
-          ["〒" + address.postal_code + "  " + address.address + "  " + address.name, address.id]end), {selected: 1} %>
 
-         <%#= f.collection_select :address_id, @addresses, :id, :name %>
+         <%= f.collection_select :address_id, @addresses, :id, :name, prompt:  @order.postal_code, class:"form-control form-control-sm col-lg-5" %>
         </div>
         <!-- お届け先 -->
 
@@ -47,11 +45,11 @@
         <!-- 新しいお届け先 -->
       <div class="row mt-5">
         <span class="d-flex">
-           <%= radio_button_tag :select, :address %><p>新しいお届け先</p>
+           <%= f.radio_button :select, 3 %><p>新しいお届け先</p>
         </span>
       </div>
 
-        <%= form_with model: @order, url: new_order_path, local: true do |f| %>
+
 
         <div class="d-flex form-group">
           <span class= "col-3 p-1"><%= f.label :郵便番号（ハイフンなし） %></span>
@@ -73,7 +71,7 @@
           <%= f.submit '確認画面へ進む', class: "btn btn-primary" %>
         </div>
 
-        <% end %>
+
     </div>
       <% end %>
 

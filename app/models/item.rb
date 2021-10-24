@@ -3,7 +3,6 @@ class Item < ApplicationRecord
   attachment :image
   has_many :orders
   belongs_to :genre
-  #has_many :genres, dependent: :destroy
 
   validates :item, presence: true
   validates :item_explanation, presence: true
