@@ -1,4 +1,3 @@
-<% @sum=0 %>
 <div class= "container ">
   <div class= "row py-3">
     <h5 class= "col-3 text-center p-3 mb-2 bg-light text-dark">注文情報確認</h5>
@@ -23,9 +22,9 @@
             <td><%= cart_item.item.item %></td>
             <td><%= (cart_item.item.price).to_s(:delimited) %></td>
             <td><%= cart_item.quantity %></td>
-            <td><%= (cart_item.item.price*cart_item.quantity %></td>
+            <td><%= (cart_item.item.price*cart_item.quantity).to_s(:delimited) %></td>
           </tr>
-        </tbody>
+          </tbody>
         <% end %>
       </table>
 
@@ -33,15 +32,15 @@
           <tbody>
             <tr>
               <th style="width: 10%">送料</th>
-              <td style="width: 40%"><%= @cart_items.postage %>
+              <td style="width: 40%"><%= @order.postage.to_s(:delimited) %></td>
             </tr>
             <tr>
               <th style="width: 10%">商品合計</th>
-              <td style="width: 10%"><%= @sum %></td>
+              <td style="width: 10%"><%= @sum.to_s(:delimited) %></td>
             </tr>
             <tr>
               <th style="width: 10%">請求金額</th>
-              <td style="width: 40%"><%= @total %></td>
+              <td style="width: 40%"><%= number_to_currency(@total,　format: "%u %n") %></td>
             </tr>
           </tbody>
         </table>
@@ -53,10 +52,12 @@
 <%= @order.payment_method %>
 
 <h2>お届け先</h2>
-<%= @order.address %>
+<%= @order.postal_code + "  " + @order.address %><br />
+<%= @order.name %>
 
 <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
   <%= f.hidden_field :name %>
+  <%= f.hidden_field :postal_code %>
   <%= f.hidden_field :address %>
   <%= f.hidden_field :total_payment, value: @total %>
   <%= f.submit "注文を確定する" %>
