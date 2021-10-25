@@ -31,7 +31,7 @@
 
           <tr>
             <td>支払方法</td>
-            <td><%= @order.payment_method %></td> <!---->
+            <td><%= @order.payment_method %></td> <!--表示されない-->
           </tr>
 
           <tr>
@@ -67,14 +67,14 @@
           <tbody>
             <tr>
               <td><%= order_item.item.item %></td>
-              <td><%= order_item.item.price * 1.1.round %></td>
-              <td><%#= order_item.quantity %></td>
-              <td><%#= (item.price * order_item.quantity * 1.1).floor %></td>
+               <td><%= (order_item.item.price*1.1).round.to_s(:delimited)%></td>
+              <td><%= order_item.quantity %></td>
+              <td><%= (order_item.item.price * order_item.quantity * 1.1).round.to_s(:delimited) %></td>
               <td>
-                <%#= form_with model:@item, url: admins_item_path(@order), local:true do |f| %>
-                  <%#= f.select :sale_status, [['着手不可', '着手不可'], ['製作待ち','製作待ち'], ['製作中','製作中'], ['製作完了','製作完了']] %>
-                  <%#= f.submit "更新", class: "btn btn-primary btn-sm ml-3" %>
-                <%# end %>
+                <%= form_with model:@item, url: admins_item_path(@order), local:true do |f| %>
+                  <%= f.select :sale_status, [['着手不可', '着手不可'], ['製作待ち','製作待ち'], ['製作中','製作中'], ['製作完了','製作完了']] %>
+                  <%= f.submit "更新", class: "btn btn-primary btn-sm ml-3" %>
+                <% end %>
                 </td>
             </tr>
           </tbody>
@@ -87,17 +87,17 @@
         <tbody>
           <tr>
             <td>商品合計</td>
-            <td><%= @total %></td>
+            <td><%= (@order.total_payment -= @order.postage).round.to_s(:delimited) %></td><!--合計金額合わない-->
           </tr>
 
           <tr>
             <td>送料</td>
-            <td><%#= @order.postage %></td>
+            <td><%= @order.postage %></td>
           </tr>
 
           <tr>
             <td>請求合計金額</td>
-            <td><%#= @total + @order.postage %></td>
+            <td><%= (@order.total_payment += @order.postage).round.to_s(:delimited) %></td>
           </tr>
         </tbody>
       </table>

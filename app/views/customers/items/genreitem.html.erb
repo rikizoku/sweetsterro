@@ -13,10 +13,12 @@
         </div>
       </div>
   </div>
+
+
 <div class='container'>
    <div class='row'>
 
-       <h2>商品一覧（全<%= @items.count %>件)</h2>
+       <h2><%= @genre.genre_name %>一覧（全<%= @items.count %>件)</h2>
        <div class= 'd-flex align-content-stretch flex-row mb-4'>
            <% @items.each do |item| %>
              <span class= "p-4">
