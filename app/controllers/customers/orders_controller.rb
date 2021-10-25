@@ -61,6 +61,7 @@ class Customers::OrdersController < ApplicationController
   def show
     @cart_items = current_customer.cart_items.all
     @order = Order.find(params[:id])
+    @sum = @order.total_payment - @order.postage
   end
 
   private
