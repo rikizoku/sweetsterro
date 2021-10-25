@@ -4,7 +4,8 @@ class Admins::OrdersController < ApplicationController
   end
 
   def show
-    #@order = Order.find(params[:id])
+    @order = Order.find(params[:id])
+    @orders = OrderItem.all
     #@oder_items = @order_items(params[:id])
     #@total = @cart_items.inject(0) { |sum, item| sum + item.cart_items_price }
   end
