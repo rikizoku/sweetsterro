@@ -19,9 +19,9 @@
               <% end %>
             </td>
             <td><%= order.customer %></td>
-            <td><%= order.cart_item.quantity %></td>
+            <td><%= order.order_item.quantity %></td>
           　<td><%= order.status %></td>
-          　<td><%= link_to "詳細", admind_path(order), class:"btn btn-primary" %></td>
+          　<td><%= link_to "詳細", admins_order_path(order), class:"btn btn-primary" %></td>
 	  	  	</tr>
   	  	  <% end %>
   	  	</tbody>

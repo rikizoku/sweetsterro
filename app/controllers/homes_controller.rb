@@ -4,7 +4,7 @@ class HomesController < ApplicationController
 
   def top
     @items = Item.where(sale_status: "販売中")
-    @genre = Genre.all
+    @genres = Genre.all
   end
 
 end
