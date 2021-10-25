@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   scope module: 'customers' do
     resource :customers, except: :create
     resources :items
+    get '/genreitem/:id' => 'items#genreitem', as: 'genreitems'
     resources :orders do
       collection do
         post :confirm
         get :complete
+  
       end
     end
     resources :cart_items do

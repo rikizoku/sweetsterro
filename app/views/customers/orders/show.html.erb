@@ -36,7 +36,7 @@
           <tbody>
             <tr>
               <th style="width: 30%">商品合計</th>
-              <td><%= @order.total_payment.round.to_s(:delimited) %></td>
+              <td><%= @sum.round.to_s(:delimited) %></td>
             </tr>
             <tr>
               <th style="width: 30%">配送料</th>
@@ -44,7 +44,7 @@
             </tr>
             <tr>
               <th style="width: 30%">ご請求額</th>
-              <td class="font-weight-bold"><%= (@order.total_payment += @order.postage).round.to_s(:delimited) %></td>
+              <td class="font-weight-bold"><%= @order.total_payment.round.to_s(:delimited) %></td>
             </tr>
           </tbody>
         </table>
