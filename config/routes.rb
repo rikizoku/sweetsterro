@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   end
 
 
-   devise_for :admins, controllers: {
+   devise_for :admins,skip: [:passwords], controllers: {
   sessions: "admins/sessions"
 }
     namespace :admins do

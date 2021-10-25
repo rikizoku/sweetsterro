@@ -6,5 +6,6 @@ class CartItem < ApplicationRecord
   (item.price*1.1) * quantity
   end
 
-validates :quantity , presence: true
+  validates :quantity, inclusion: { in: 1..10 }
+
 end

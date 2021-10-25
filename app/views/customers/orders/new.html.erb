@@ -16,9 +16,9 @@
 
       <%= form_with model:@order, url: confirm_orders_path, method: :post, local:true do |f| %>
         <div class="form-check mt-3">
-          <%= f.radio_button :payment_method, :クレジットカード %>
+          <%= radio_button_tag :payment_method, :クレジットカード %>
           <%= label_tag :payment_method, "クレジットカード", {value: :"クレジットカード", style: "display: inline-block;"} %><br>
-          <%= f.radio_button :payment_method, :銀行振込 %>
+          <%= radio_button_tag :payment_method, :銀行振込 %>
           <%= label_tag :payment_method, "銀行振込", {value: :"銀行振込", style: "display: inline-block;"} %>
         </div>
 
@@ -38,7 +38,6 @@
           登録住所から選択<br>
 
          <div class="form-group">
-
            <label class="control-label">
            <%= f.collection_select :address_id, @addresses, :id, :alladress, class:"form-control col-lg-5" %>
            </label>
@@ -57,10 +56,9 @@
 
 
 
-
-        <div class="d-flex form-group">
-          <span class= "col-3 p-1"><%= f.label :郵便番号（ハイフンなし） %></span>
-          <%= f.text_field :postal_code, placeholder: "郵便番号", class: "form-control offset-1 col-10" %>
+        <div class="form-group row">
+          <span class= "col-10 p-1"><%= f.label :郵便番号（ハイフンなし） %></span>
+          <%= f.text_field :post_code, placeholder: "郵便番号", class: "form-control offset-1 col-10" %>
         </div>
 
         <div class="form-group row">

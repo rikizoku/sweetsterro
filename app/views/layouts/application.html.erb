@@ -23,65 +23,60 @@
       <ul class="navbar-nav ml-auto">
       <% if customer_signed_in? %>
 
-      <li class= "header">
-        <button class="btn btn-default"><%= link_to "マイページ", customers_path %></button>
-      </li>
+        <li class= mypage>
+          <%= link_to "マイページ", customers_path %>
+        </li>
 
-     <li class= "header">
-      <button class="btn btn-default"><%= link_to "商品一覧", items_path %></button>
-      </li>
+       <li class= items>
+        <button class="btn btn-default"><%= link_to "商品一覧", items_path %></button>
+        </li>
 
-       <li class="header">
-      <button class="btn btn-default"><%= link_to "カート", cart_items_path %></button>
-      </li>
+         <li class=cart>
+        <button class="btn btn-default"><%= link_to "カート", cart_items_path %></button>
+        </li>
 
-      <li class="header">
-        <button class="btn btn-default"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></button>
-      </li>
+        <li class=logout>
+          <button class="btn btn-default"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></button>
+        </li>
 
-    <% else %>
+      <% elsif admin_signed_in? %>
+        <li class= items>
+          <%= link_to '商品一覧', admins_items_path %>
+        </li>
 
-     <li class="header">
-      <button class="btn btn-default"><%= link_to "About", homes_about_path %></button>
-      </li>
+        <li class= customers>
+          <%= link_to '会員一覧', admins_customers_path %>
+        </li>
 
-       <li class= "header">
-     <button class="btn btn-default"><%= link_to "商品一覧", items_path %></button>
-      </li>
+        <li class=orders>
+          <%= link_to '注文履歴一覧', admins_path %>
+        </li>
+
+        <li class=genres>
+          <%= link_to 'ジャンル一覧', admins_genres_path %>
+        </li>
+
+        <li class=logout>
+          <%= link_to "ログアウト",destroy_admin_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li class=about>
+          <button class="btn btn-default"><%= link_to "About", homes_about_path %></button>
+        </li>
+
+         <li class= items>
+           <button class="btn btn-default"><%= link_to "商品一覧", items_path %></button>
+        </li>
 
 
-      <li calss="header">
-      <button class="btn btn-default"><%= link_to "新規登録", new_customer_registration_path %></button>
-      </li>
+        <li calss=signup>
+          <button class="btn btn-default"><%= link_to "新規登録", new_customer_registration_path %></button>
+        </li>
 
-      <li class="header">
-       <button class="btn btn-default"><%= link_to "ログイン", new_customer_session_path %></button>
-      </li>
-
-   <% end %>
-
-    <% if admin_signed_in? %>
-   <li class= "header">
-    <button class="btn btn-default"><%= link_to '商品一覧', admins_items_path %></button>
-    </li>
-
-  <li class= "header">
-  <button class="btn btn-default"><%= link_to '会員一覧', admins_customers_path %></button>
-  </li>
-
-  <li class="header">
-  <button class="btn btn-default"><%= link_to '注文履歴一覧', admins_path %></button>
-  </li>
-
-  <li class="header">
-  <button class="btn btn-default"><%= link_to 'ジャンル一覧', admins_genres_path %></button>
-  </li>
-
-  <li class="header">
-  <button class="btn btn-default"><%= link_to "ログアウト",destroy_admin_session_path, method: :delete %></button>
-  </li>
-
-  <% end %>
+        <li class=login>
+         <%= link_to "ログイン", new_customer_session_path %>
+        </li>
+      <% end %>
 
     </ul>
     </div>
