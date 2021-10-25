@@ -1,0 +1,18 @@
+<thead>
+  <tr>
+    <th>商品名</th>
+    <th>単価（税込）</th>
+    <th>数量</th>
+    <th>小計</th>
+  </tr>
+</thead>
+<% cart_items.each do |cart_item| %>
+  <tbody>
+    <tr>
+      <td><%= cart_item.item.item %></td>
+      <td><%= (cart_item.item.price.round).to_s(:delimited) %></td>
+      <td><%= cart_item.quantity.round %></td>
+      <td><%= (cart_item.item.price*cart_item.quantity).round.to_s(:delimited) %></td>
+    </tr>
+  </tbody>
+<% end %>
