@@ -25,14 +25,14 @@ before_action :authenticate_customer!
   end
 
   def destroy_all
-    cart_item = current_customer.cart_items.all
-    cart_item.destroy_all
+
+    current_customer.cart_items.destroy_all
     redirect_to cart_items_path
   end
 
   def destroy
-    cart_items = CartItem.find(params[:id])
-    cart_items.destroy
+    cart_item = CartItem.find(params[:id])
+    cart_item.destroy
     redirect_to cart_items_path
   end
 
