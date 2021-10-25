@@ -1,3 +1,10 @@
+<% if @cart_item.errors.any? %>
+    <ul>
+      <% @cart_item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+      <% end %>
+<% end %>
+
 <div class= " container ">
   <div class= " row ">
     <div class= "col"><%= attachment_image_tag @item, :image, format: 'jpeg', fallback: "noimage.jpg", size: "300x300" %></div>

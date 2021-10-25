@@ -10,9 +10,14 @@ before_action :authenticate_customer!
       cart_item.update_attribute(:quantity, new_quantity)
       @cart_item.delete
     end
-  end
-    @cart_item.save
-    redirect_to cart_items_path
+    end
+    if
+      @cart_item.save
+      redirect_to cart_items_path
+    else
+      @item = Item.find(cart_item_params[:item_id])
+      render "customers/items/show"
+    end
   end
 
   def index
@@ -20,14 +25,14 @@ before_action :authenticate_customer!
   end
 
   def destroy_all
-    @cart_items = current_customer.cart_items
-    @cart_items.destroy_all
+    cart_item = current_customer.cart_items.all
+    cart_item.destroy_all
     redirect_to cart_items_path
   end
 
   def destroy
-    @cart_items = current_customer.cart_items
-    @cart_items.destroy
+    cart_items = CartItem.find(params[:id])
+    cart_items.destroy
     redirect_to cart_items_path
   end
 
