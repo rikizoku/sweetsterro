@@ -1,32 +1,30 @@
-  <div class= "container">
-    <div class= "row">
-      <h4 >注文履歴一覧</h4>
-      <table class="table">
-        <thead class="thead-light">
+
+
+  <div class="row">
+      <h2>注文履歴一覧</h2>
+      <div class="col-xs-10 col-xs-offset-1"style="margin-top: 50px;">
+        <table class="table">
+          <thead>
+            <tr class="table-head" style="background-color:#F5F5F5;">
+              <th scope="col">購入日時</th>
+              <th scope="col">購入者</th>
+              <th scope="col">注文個数</th>
+              <th scope="col">注文ステータス</th>
+            </tr>
+          </thead>
+              <tbody>
+        <% @orders.each do |order| %>
           <tr>
-            <th>購入日時</th>
-            <th>購入者</th>
-            <th>注文個数</th>
-            <th>注文ステータス</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @orders.each do |order| %>
-	  	   	<tr>
-            <td>
-              <%= link_to admins_path do %>
-              <%= order.created_at %>
-              <% end %>
+            <td><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M"), admins_order_path(order) %></td>
+            <!-- .strftime => created_atの表記を設定 -->
+            <td><%= order.customer.first_name %>
+              <%= order.customer.last_name %>
             </td>
-            <td><%= order.customer %></td>
-            <td><%= order.order_item.quantity %></td>
-          　<td><%= order.status %></td>
-          　<td><%= link_to "詳細", admins_order_path(order), class:"btn btn-primary" %></td>
-	  	  	</tr>
-  	  	  <% end %>
-  	  	</tbody>
-      </table>
+            <td><%= order.order_items.sum(:quantity) %></td>
+            <td><%= order.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+        </table>
 
-    </div>
-  </div>
-
+      </div>
