@@ -16,7 +16,7 @@
         <div class="container">
 
       <li class="LOGO">
-       <strong>長野ケーキ</strong>
+       <strong><%= link_to "長野ケーキ", root_path %></strong>
       </li>
 
       <div class="collapse navbar-collapse" id="navbarNavDropdown"></div>
@@ -24,7 +24,7 @@
       <% if customer_signed_in? %>
 
         <li class= mypage>
-          <%= link_to "マイページ", customers_path %>
+         <button class="btn btn-default"> <%= link_to "マイページ", customers_path %></button>
         </li>
 
        <li class= items>
@@ -41,23 +41,23 @@
 
       <% elsif admin_signed_in? %>
         <li class= items>
-          <%= link_to '商品一覧', admins_items_path %>
+          <button class="btn btn-default"><%= link_to '商品一覧', admins_items_path %></button>
         </li>
 
         <li class= customers>
-          <%= link_to '会員一覧', admins_customers_path %>
+          <button class="btn btn-default"><%= link_to '会員一覧', admins_customers_path %></button>
         </li>
 
         <li class=orders>
-          <%= link_to '注文履歴一覧', admins_path %>
+          <button class="btn btn-default"><%= link_to '注文履歴一覧', admins_path %></button>
         </li>
 
         <li class=genres>
-          <%= link_to 'ジャンル一覧', admins_genres_path %>
+          <button class="btn btn-default"><%= link_to 'ジャンル一覧', admins_genres_path %></button>
         </li>
 
         <li class=logout>
-          <%= link_to "ログアウト",destroy_admin_session_path, method: :delete %>
+          <button class="btn btn-default"><%= link_to "ログアウト",destroy_admin_session_path, method: :delete %></button>
         </li>
       <% else %>
         <li class=about>
@@ -74,7 +74,7 @@
         </li>
 
         <li class=login>
-         <%= link_to "ログイン", new_customer_session_path %>
+         <button class="btn btn-default"><%= link_to "ログイン", new_customer_session_path %></button>
         </li>
       <% end %>
 

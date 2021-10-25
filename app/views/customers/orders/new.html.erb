@@ -16,10 +16,11 @@
 
       <%= form_with model:@order, url: confirm_orders_path, method: :post, local:true do |f| %>
         <div class="form-check mt-3">
-          <%= radio_button_tag :payment_method, :クレジットカード %>
+          <%= f.radio_button :payment_method, :クレジットカード %>
           <%= label_tag :payment_method, "クレジットカード", {value: :"クレジットカード", style: "display: inline-block;"} %><br>
-          <%= radio_button_tag :payment_method, :銀行振込 %>
+          <%= f.radio_button :payment_method, :銀行振込 %>
           <%= label_tag :payment_method, "銀行振込", {value: :"銀行振込", style: "display: inline-block;"} %>
+
         </div>
 
 <!-- 支払先 -->
