@@ -1,15 +1,12 @@
 class Customers::OrdersController < ApplicationController
 
 
-  #注文情報入力ページ
   def new
     @addresses = current_customer.addresses
     @address = Address.new
     @order = Order.new
   end
-  #注文情報入力ページ
 
- #注文情報入力ページ
   def create
     @cart_items = current_customer.cart_items.all
     @order = current_customer.orders.new(order_params)
@@ -31,7 +28,6 @@ class Customers::OrdersController < ApplicationController
       render :new
     end
   end
- #注文情報入力ページ
 
    def confirm
 
