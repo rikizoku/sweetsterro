@@ -10,7 +10,6 @@ class Admins::ItemsController < ApplicationController
     @item_page = Item.page(params[:page]).reverse_order
   end
 
-
   def edit
     @item = Item.find(params[:id])
   end

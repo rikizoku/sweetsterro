@@ -32,7 +32,13 @@
         <td><%= number_to_currency(item.price) %></td>
 
          <td><%= item.genre.genre_name %></td>
-         <td><%= item.sale_status %></td>
+         <td><% if item.sale_status == true %>
+
+          <h7 class='ture' style="color :limegreen;"><strong>販売中</strong></h7>
+          <% else %>
+	  	    <h7 class='false' style="color :#d3d3d3;"><strong>品切れ</strong></h7>
+	  	    <% end %>
+	  	    </td>
       </tr>
     <% end %>
   </tbody>
