@@ -1,3 +1,5 @@
+
+
 <!--ジャンルサイドバー{Tsuyoshi}-->
  <div class="container-fluid">
       <div class="row-fluid">
@@ -5,20 +7,8 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
 
-      <tbody class="container">
-	    <span>ジャンル検索</span>
-	    <br />
 
-          <%# @genres.each do |genre| %>
-
-	  	   	<tr class="row">
-            <td>
-            </td>
-            <td><%= @genre %></td>
-          　<td><%#= link_to "詳細", admins_genre_path, class:"btn btn-primary" %></td>
-	  	  	</tr>
-  	  	  <%# end %>
-  	  	</tbody>
+ <%= render 'genre', genres: @genres %>
 
 
             </ul>
