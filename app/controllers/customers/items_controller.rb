@@ -11,4 +11,3 @@ class Customers::ItemsController < ApplicationController
     end
 
 end
-
