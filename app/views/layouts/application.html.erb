@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>sweetsterro</title>
+    <title>NaganoCake</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -16,7 +16,9 @@
         <div class="container">
 
       <li class="LOGO">
-       <strong><%= link_to "長野ケーキ", root_path %></strong>
+       <%= link_to root_path do %>
+       <i class="fas fa-birthday-cake"></i>
+       <% end %>
       </li>
 
       <div class="collapse navbar-collapse" id="navbarNavDropdown"></div>

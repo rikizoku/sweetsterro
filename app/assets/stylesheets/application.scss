@@ -43,7 +43,7 @@
 
 .LOGO {
   list-style: none;
-  font-size: 30px;
+  font-size: 60px;
 }
 
 .kotira {
@@ -70,3 +70,8 @@
   width: 500px;
 }
 
+.itemimage{
+  width: 400px;
+  height: 300px;
+  object-fit: contain;
+}

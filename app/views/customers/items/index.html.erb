@@ -17,12 +17,12 @@
    <div class='row'>
 
        <h2>商品一覧（全<%= @items.count %>件)</h2>
-       <div class= 'd-flex align-content-stretch flex-row mb-4 '>
+       <div class= 'd-flex align-content-stretch flex-row mb-4'>
            <% @items.each do |item| %>
              <span class= "p-4">
-              <%= link_to item_path(item.id) do %><%= attachment_image_tag item, :image, :fill, 40, 40, format: 'jpeg', fallback: "noimage.jpg" %><br /><% end%>
+              <%= link_to item_path(item.id) do %><%= attachment_image_tag item, :image, :fill, 180, 180, format: 'jpeg', fallback: "noimage.jpg" %><br /><% end%>
               <%= link_to item_path(item.id) do %><%= item.item %> <% end %><br />
-              <%= number_to_currency(item.price, :unit => "￥") %>
+              <%= number_to_currency(item.price, unit: "¥", format: "%u %n") %>
              </span>
            <% end %>
        </div>

@@ -1,0 +1,37 @@
+<div class= "container ">
+  <div class= "row py-3">
+    <h5 class= "col-3 text-center p-3 mb-2 bg-light text-dark">注文履歴一覧</h5>
+  </div>
+</div>
+
+<div class= "container">
+  <div class= "row">
+    <p class="font-weight-bold">注文情報</p>
+    <table class="table table-bordered">
+      <thead style="background-color: #EEEEEE;">
+        <tr>
+          <th>注文日</th>
+          <th>配送先</th>
+          <th>注文商品</th>
+          <th>支払金額</th>
+          <th>注文詳細</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.updated_at.strftime('%Y/%m/%d') %></td>
+          <td>
+            <%= order.address %><br />
+            <%= order.name %>
+          </td>
+          <td>
+            <% order.order_items.each do |order_items| %>
+              <%= order_items.item.item %><br />
+            <% end %>
+          </td>
+          <td><%= order.total_payment.round.to_s(:delimited) %></td>
+          <td><%= link_to "表示する", order_path(order), class: "btn btn-success" %></td>
+        </tr>
+        <% end %>
+      </tbody>

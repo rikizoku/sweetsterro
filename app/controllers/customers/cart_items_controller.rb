@@ -7,7 +7,8 @@ before_action :authenticate_customer!
     if
      @cart_item.quantity == nil
      @item = Item.find(cart_item_params[:item_id])
-      render "customers/items/show"
+     flash[:notice] = '個数を選択してください'
+     render "customers/items/show"
     else
       @cart_items.each do |cart_item|
         if cart_item.item_id == @cart_item.item_id
