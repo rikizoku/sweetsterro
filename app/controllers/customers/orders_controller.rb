@@ -1,5 +1,10 @@
 class Customers::OrdersController < ApplicationController
+  
 
+
+  def index
+    @orders = Order.all
+  end
 
   def new
     @addresses = current_customer.addresses
