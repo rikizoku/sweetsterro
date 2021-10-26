@@ -19,4 +19,8 @@ enum payment_method: {クレジットカード: 0, 銀行振込: 1 }
     end
   end
 
+  def cart_items_price
+   (item.price*1.1) * quantity
+  end
+
 end

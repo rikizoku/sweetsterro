@@ -1,5 +1,10 @@
 class Customers::OrdersController < ApplicationController
+  
 
+
+  def index
+    @orders = Order.all
+  end
 
   def new
     @addresses = current_customer.addresses
@@ -57,11 +62,15 @@ class Customers::OrdersController < ApplicationController
 
    end
 
-
   def show
-    @cart_items = current_customer.cart_items.all
     @order = Order.find(params[:id])
+    @orders = @order.order_items
     @sum = @order.total_payment - @order.postage
+  end
+
+  def index
+    @orders = Order.all
+
   end
 
   private

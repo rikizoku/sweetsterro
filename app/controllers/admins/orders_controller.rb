@@ -8,8 +8,6 @@ class Admins::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @orders = @order.order_items
-    #@oder_item = @order_items(params[:id])
-    #@total = @cart_items.inject(0) { |sum, item| sum + item.cart_items_price }
   end
 
   def update
@@ -17,12 +15,6 @@ class Admins::OrdersController < ApplicationController
     order.update(order_params)
     redirect_to admins_order_path(order)
   end
-
-  #def update
-    #order_item = Order.find(params[:id])
-    #order_item.update(order_item_params)
-    #redirect_to admins_path
-  #end
 
   private
 

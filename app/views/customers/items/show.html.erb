@@ -1,20 +1,27 @@
-<% if @cart_item.errors.any? %>
-    <p>個数を選択してください</p>
-<% end %>
 
-<div class= " container ">
-  <div class= " row ">
-    <div class= "col"><%= attachment_image_tag @item, :image, format: 'jpeg', fallback: "noimage.jpg", size: "300x300" %></div>
-      <div class= " col ">
-        <h5><%= @item.item %></h5>
-        <p><%= @item.item_explanation %></p>
-        <%= number_to_currency(@item.price, unit: "¥", format: "%u %n" ) %>
+<div class= "container ">
+  <div class= "row py-3">
+   <div class= "d-flex mx-auto">
+     <div class="col-2 card">
+      <div class="card-header">
+        ジャンル
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= render 'homes/genre', genres: @genres %></p>
+      </div>
+    </div>
+    <div class="offset-1" ><%= attachment_image_tag @item, :image, format: 'jpeg', fallback: "noimage.jpg", class: "itemimage" %></div>
+    <div style="vertical-align: middle; margin: 100px;">
+        <h2><%= @item.item %></h2>
+        <h4 style="margin-bottom: 50px;"><%= @item.item_explanation %></h3>
+        <h3><%= number_to_currency((@item.price * 1.1), unit: "¥", format: "%u %n" ) %>（税込）</h3>
+
         <%= form_with model:@cart_item, url: cart_items_path, local:true do |f| %>
           <%= f.select :quantity, options_for_select((1..10).to_a), include_blank: "個数選択" %>
           <%= f.hidden_field :customer_id, value: current_customer.id %>
           <%= f.hidden_field :item_id, value: @item.id %>
-          <%= f.submit "カートに入れる", class: "btn btn-secondary" %>
+          <span style="margin-left:50px;"><%= f.submit "カートに入れる", class: "btn btn-success" %></span>
         <% end %>
-      </div>
+    </div>
   </div>
 </div>
