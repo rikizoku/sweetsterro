@@ -41,9 +41,9 @@
             <td>販売ステータス</td>
               <td>
               <% if @item.sale_status == false %>
-              <p class="text-danger">販売停止中</p>
+               <h7><strong class='false' style="color :#d3d3d3;">販売停止中</strong></h7>
               <% else %>
-	  	        <p class="text-danger">販売中</p>
+	  	         <h7><strong class='ture' style="color :limegreen;">販売中</strong></h7>
 	  	        <% end %>
               </td>
           </tr>

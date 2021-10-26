@@ -32,12 +32,16 @@
           <label class= "col-2 p-2">商品説明</label>
           <%= f.text_area :item_explanation, autofocus: true, placeholder:"ここに説明文を記述します", class: "form-control" %>
         </div>
+        <div class= "mb-4 d-flex form-group">
+          <label class= "col-2 p-2">ジャンル</label>
+           <%= f.collection_select :genre_id, Genre.all, :id, :genre_name, class: "form-control" %>
+        </div>
 
-        <div>ジャンル</div>
+        
 
         <div class= "mb-4 d-flex form-group">
           <label class= "col-2 p-2">税別価格</label>
-          <%= f.text_field :price, autofocus: true, placeholder:"選択されていません", class: "form-control" %>
+          <%= f.text_field :price, autofocus: true, placeholder:"選択されていません", class: "form-control col-sm-8" %>
         </div>
 
         <div class= "mb-4 d-flex form-group">
