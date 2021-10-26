@@ -69,6 +69,7 @@
           <tbody>
             <tr>
               <td><%= order_item.item.item %></td>
+
               <td><%= (order_item.item.price * 1.1).round %></td>
               <td><%= order_item.quantity %></td>
               <td><%= (order_item.item.price * order_item.quantity * 1.1).floor %></td>
@@ -94,19 +95,11 @@
           </tr>
           <tr>
             <td>送料</td>
-<<<<<<< HEAD
-            <td><= @order.postage %></td>
-          </tr>
-          <tr>
-            <td>請求合計金額</td>
-            <td><= @total + @order.postage %></td>
-=======
             <td><%= @order.postage %></td>
           </tr>
           <tr>
             <td>請求合計金額</td>
             <td><%= @order.total_payment + @order.postage %></td>
->>>>>>> origin/develop
           </tr>
         </tbody>
       </table>
