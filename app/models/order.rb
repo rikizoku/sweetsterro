@@ -13,9 +13,9 @@ class Order < ApplicationRecord
 enum payment_method: {クレジットカード: 0, 銀行振込: 1 }
 
   after_update do
-    if self.order_status == "入金確認"
-      self.order_details.each {|order_detail|
-      order_item.update(sale_status: "製作待ち")}
+    if self.status == "入金確認"
+       self.order_items.each {|order_item|
+       order_item.update(production_status: "製作待ち")}
     end
   end
 
