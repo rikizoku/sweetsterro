@@ -1,5 +1,8 @@
 <% if @cart_item.errors.any? %>
-    <p>個数を選択してください</p>
+    <ul>
+      <% @cart_item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+      <% end %>
 <% end %>
 
 <div class= " container ">
