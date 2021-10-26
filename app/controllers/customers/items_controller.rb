@@ -3,6 +3,7 @@ class Customers::ItemsController < ApplicationController
 def show
     @item = Item.find(params[:id])
     @cart_item = current_customer.cart_items.new
+    @genres = Genre.all
 end
 
 def index
@@ -16,6 +17,6 @@ def genreitem
     @items = @genre.items
     @genres = Genre.all
     @item_page = Item.page(params[:page]).reverse_order
-end   
+end
 
 end
