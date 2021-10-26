@@ -39,7 +39,8 @@
       <%= @order.payment_method %>
 
       <h4 class= "mt-4">お届け先</h4>
-      <%= @order.postal_code + "  " + @order.address %><br />
+      <%= @order.postal_code %>
+      <%= @order.address %><br/>
       <%= @order.name %>
 
       <%= form_with model: @order, url: orders_path, method: :post, local: true, class: "m-3" do |f| %>

@@ -1,3 +1,4 @@
+
 <div class= "container ">
   <div class= "row py-3">
    <div class= "d-flex mx-auto">
@@ -14,6 +15,7 @@
         <h2><%= @item.item %></h2>
         <h4 style="margin-bottom: 50px;"><%= @item.item_explanation %></h3>
         <h3><%= number_to_currency((@item.price * 1.1), unit: "¥", format: "%u %n" ) %>（税込）</h3>
+
         <%= form_with model:@cart_item, url: cart_items_path, local:true do |f| %>
           <%= f.select :quantity, options_for_select((1..10).to_a), include_blank: "個数選択" %>
           <%= f.hidden_field :customer_id, value: current_customer.id %>

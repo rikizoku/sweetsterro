@@ -57,7 +57,6 @@ class Customers::OrdersController < ApplicationController
 
    end
 
-
   def show
     @order = Order.find(params[:id])
     @orders = @order.order_items
