@@ -1,5 +1,5 @@
 class Customers::OrdersController < ApplicationController
-  
+
 
 
   def index
@@ -41,7 +41,7 @@ class Customers::OrdersController < ApplicationController
     @address = current_customer.addresses.first
     @address = Address.new
     if params[:order][:select] == "1"
-      @order.name = current_customer.last_name + current_customer.first_name
+      @order.name = current_customer.first_name + current_customer.last_name
       @order.address = current_customer.address
       @order.postal_code = current_customer.post_code
     elsif params[:order][:select] == "2"
