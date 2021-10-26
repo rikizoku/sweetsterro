@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       collection do
         post :confirm
         get :complete
-  
+
       end
     end
     resources :cart_items do
@@ -34,7 +34,9 @@ Rails.application.routes.draw do
     resources :items
     resources :customers
     resources :genres, only: [:index, :edit, :create, :update, :destroy]
-    resources :orders, only: [:index, :update, :show]
+    resources :orders, only: [:index, :update, :show] do
+      resources :order_items, only: [:update]
+    end
     get '/' => 'homes#top'
 
   end
