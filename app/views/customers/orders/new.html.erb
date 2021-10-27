@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="row">
+  <div class="row py-3">
     <div class="offset-1">
       <%= flash[:order_new] %>
-      <h3 class="col-3 text-center p-3 mb-2 bg-light text-dark">注文情報入力</h3>
+      <h2 class="col-3 text-center design">注文情報入力</h2>
     </div>
   </div>
 
@@ -11,7 +11,7 @@
 
 <!-- 支払先 -->
       <div class="row">
-        <strong class="px-3">支払方法</strong>
+        <strong class="px-3" style= "color: #364e96; padding: 0.5em 0; border-top: solid 3px #364e96; border-bottom: solid 3px #364e96;">支払方法</strong>
       </div>
 
       <%= form_with model:@order, url: confirm_orders_path, method: :post, local:true do |f| %>
@@ -27,7 +27,7 @@
 
 <!-- お届け先 -->
         <div class="row mt-3">
-          <strong class="px-3">お届け先</strong>
+          <strong class="px-3 " style= "color: #364e96; padding: 0.5em 0; border-top: solid 3px #364e96; border-bottom: solid 3px #364e96;">お届け先</strong>
         </div>
 
         <div class="form-check mt-3">
@@ -57,17 +57,17 @@
 
 
         <div class="form-group row">
-          <span class= "col-10 p-1"><%= f.label :郵便番号（ハイフンなし） %></span>
+          <span class= "offset-1 col-10 p-1"><%= f.label :郵便番号（ハイフンなし） %></span>
           <%= f.text_field :post_code, placeholder: "郵便番号", class: "form-control offset-1 col-10" %>
         </div>
 
         <div class="form-group row">
-          <span class= "col-3 p-2"><%= f.label :住所 %></span>
+          <span class= "offset-1 col-3 p-2"><%= f.label :住所 %></span>
           <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "form-control offset-1 col-10" %>
         </div>
 
         <div class="form-group row">
-          <span class= "col-3 p-2"><%= f.label :宛名 %></span>
+          <span class= "offset-1 col-3 p-2"><%= f.label :宛名 %></span>
           <%= f.text_field :name, placeholder:"令和道子", class: "form-control offset-1 col-5" %>
         </div>
 <!-- 新しいお届け先 -->

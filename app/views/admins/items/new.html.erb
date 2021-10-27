@@ -1,20 +1,20 @@
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h3>商品新規登録</h3>
+      <h3 class= "col-3 manage">商品新規登録</h3>
       <%= form_with model:@item, url:'/admins/items', local:true do |f| %>
 
       <div>
          <%= f.label :商品画像 %>
-         <%= f.attachment_field :image, class: "image" %>
+         <%= f.attachment_field :image, class: "image", style: "color: #364e96; border: solid 3px #364e96; padding: 0.5em; border-radius: 0.5em;" %>
       </div>
       <div>
         <%= f.label :商品名 %>
-        <%= f.text_field :item, class: "form-control item" %>
+        <%= f.text_field :item, class: "form-control item", style: "color: #364e96; border: solid 3px #364e96; padding: 0.5em; border-radius: 0.5em;" %>
       </div>
       <div>
         <%= f.label :商品説明 %>
-        <%= f.text_area :item_explanation, class:"form-control item_explanation" %><br>
+        <%= f.text_area :item_explanation, class:"form-control item_explanation", style: "color: #364e96; border: solid 3px #364e96; padding: 0.5em; border-radius: 0.5em;" %><br>
       </div>
       <div>
         <%= f.label :ジャンル %>
@@ -23,7 +23,7 @@
       <div>
 
       <%= f.label :税抜価格 %>
-      <%= f.text_field :price, class: "form-control price" %>
+      <%= f.text_field :price, class: "form-control price", style: "color: #364e96; border: solid 3px #364e96; padding: 0.5em; border-radius: 0.5em;" %>
       </div>
       <div>
         <%= f.label :販売ステータス %>

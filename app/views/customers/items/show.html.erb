@@ -4,7 +4,7 @@
    <div class= "d-flex mx-auto">
      <div class="col-2 card">
       <div class="card-header">
-        ジャンル
+        ジャンル検索
       </div>
       <div class="card-body">
         <p class="card-text"><%= render 'homes/genre', genres: @genres %></p>
@@ -12,7 +12,7 @@
     </div>
     <div class="offset-1" ><%= attachment_image_tag @item, :image, format: 'jpeg', fallback: "noimage.jpg", class: "itemimage" %></div>
     <div style="vertical-align: middle; margin: 100px;">
-        <h2><%= @item.item %></h2>
+        <h2 class="snack"><%= @item.item %></h2>
         <h4 style="margin-bottom: 50px;"><%= @item.item_explanation %></h3>
         <h3><%= number_to_currency((@item.price * 1.1), unit: "¥", format: "%u %n" ) %>（税込）</h3>
 
