@@ -86,14 +86,10 @@
 .header-title {
 
   font-size: 20px;
-
   text-decoration: none;
-
   color:#555555	;
-
-  font-family: 'YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
-
   margin-left: 4%;
+  font-family: 'Yomogi', cursive;
 
 }
 
@@ -104,25 +100,7 @@
 
   padding-left: 15px;
 
-  font-family: 'YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
-
-}
-
-.header-center{
-
-  padding-top: 10px;
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  flex-direction: column;
-
-  color: whitesmoke;
-
-  font-family: 'YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
+  font-family: 'Yomogi', cursive;
 
 }
 
@@ -169,11 +147,22 @@ body {
 }
 
 .navbar{
-  background-color: #BBFFFF;
+  background: linear-gradient(45deg, #f0bc68 0%, #f0bc68 50%, #c4d7d1 50%, #c4d7d1 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar p {
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
 }
 
 .nav-item {
   background-color: #77EEFF;
+  font-family: 'Yomogi', cursive;
 }
 
 .link {
@@ -246,4 +235,20 @@ td,th{
   border-right-color: transparent;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
+}
+
+#box{
+  height: 450px;
+}
+.image1 {
+  background-image: url(image1.jpg);
+}
+.image2 {
+  background-image: url(image2.jpg);
+}
+.image3 {
+  background-image: url(image3.jpg);
+}
+.image4 {
+  background-image: url(image4.jpg);
 }

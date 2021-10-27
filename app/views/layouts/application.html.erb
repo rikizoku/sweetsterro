@@ -5,6 +5,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap" rel="stylesheet">
+
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -17,7 +22,6 @@
           <a class="Logo navbar-brand p-3" href="/">
             <%= link_to root_path, class:"header-title" do %>
              <div>ながのCake</div>
-             <div class="header-sub-title">〜美味しいお菓子をあなとのもとのにも〜</div>
             <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -86,7 +90,7 @@
         </div>
       </nav>
     </header>
-    <main class="mb-auto">
+    <main class="mb-auto" style="font-family: 'Kiwi Maru', serif;">
     <%= notice %>
     <%= yield %>
     </main>
