@@ -1,11 +1,13 @@
 class Customers::CartItemsController < ApplicationController
-before_action :authenticate_customer!
+
+    before_action :authenticate_customer!, except: [:show]
 
   def create
     @cart_item = current_customer.cart_items.new(cart_item_params)
     @cart_items = current_customer.cart_items.all
     if
      @cart_item.quantity == nil
+     @genres = Genre.all
      @item = Item.find(cart_item_params[:item_id])
      flash[:notice] = '個数を選択してください'
      render "customers/items/show"
