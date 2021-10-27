@@ -1,22 +1,24 @@
 <div class= "container">
   <div class= "row py-3">
-    <h5 class= "col-3 text-center p-3 mb-2 bg-light text-dark">配送先編集</h5>
+    <h5 class= "col-3 text-start design">配送先編集</h5>
   </div>
 </div>
 
+<div class= "container">
+  <div class= "row py-3">
 <%= form_with model: @address, local:true do |f| %>
       <div class= "d-flex form-group">
-        <label class= "col-1 p-2">郵便番号（ハイフンなし）</label>
+        <label class= "col-2.5 p-2">郵便番号（ハイフンなし）</label>
         <span class= "col-3 m-3"><%= f.text_field  :postal_code, autofocus: true, class: "form-control" %></span>
       </div>
 
       <div class= "d-flex form-group">
-        <label class= "col-1 p-2">住所</label>
+        <label class= "col-2 p-2">住所</label>
         <span class= "col-3 m-3"><%= f.text_field :address, autofocus: true, class: "form-control" %></span>
       </div>
 
       <div class= "d-flex form-group">
-        <label class= "col-1 p-2">宛名</label>
+        <label class= "col-2 p-2">宛名</label>
         <span class= "col-5 m-3"><%= f.text_field :name, autofocus: true, class: "form-control" %></span>
         </div>
     <div class= "text-end"><%= f.submit "変更内容を保存", class: 'btn btn-success' %></div>
