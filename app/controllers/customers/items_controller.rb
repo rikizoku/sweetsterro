@@ -1,8 +1,10 @@
 class Customers::ItemsController < ApplicationController
 
+    before_action :authenticate_customer!,except: [:index,:show]
+
 def show
     @item = Item.find(params[:id])
-    @cart_item = current_customer.cart_items.new
+    @cart_item = CartItem.new
     @genres = Genre.all
 end
 
