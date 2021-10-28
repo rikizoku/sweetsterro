@@ -1,0 +1,48 @@
+<div class="container">
+
+
+      <h2 class= "col-3 text-start design">配送先登録/一覧</h2>
+      <div class='col-10'>
+         <%= render 'form', address: @address %>
+      </div>
+
+
+
+
+  <div class="row px-3">
+    <div class="col-12">
+       <table class="table">
+        <thead style= "color: #FFF; font-weight: bold; background:#00BCD4;">
+          <tr>
+            <th>郵便番号</th>
+            <th>住所</th>
+            <th>宛名</th>
+            <th> </th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <% @addresses.each do |address| %>
+	  	   	<tr>
+            <td class="col-3"><%= address.postal_code %></td>
+            <td class="col-3"><%= address.address %></td>
+            <td class="col-3"><%= address.name %></td>
+            <td class="col-3">
+              <%= link_to "編集する", edit_address_path(address), class:"btn btn-primary" %>
+              <%= link_to "削除する", address_path(address),method: :delete, class:"btn btn-danger" %>
+
+            </td>
+	  	  	</tr>
+  	  	  <% end %>
+  	  	</tbody>
+      </table>
+
+
+    </div>
+
+
+    </div>
+
+
+
+</div>

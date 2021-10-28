@@ -1,0 +1,61 @@
+<!--本文{Tsuyoshi}-->
+<div class="container">
+  <div class="row">
+    <div class= "top-page-header">
+      <div class="text-end">
+        <div class="head-center">
+          <div class="header-center-top">ようこそ、ながのCAKEへ！</div>
+            <div class="header-center-bottom">
+             このサイトは、ケーキ販売のECサイトになります。<br>
+             会員でない方も商品の閲覧はできますが、<br>
+             購入には会員登録が必要になります。
+            </div>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--本文{Tsuyoshi}-->
+
+<!--ジャンルサイドバー{Tsuyoshi}-->
+ <div class= "container ">
+  <div class= "row py-3">
+   <div class= "d-flex mx-auto">
+     <div class="col-2 card">
+      <div class="card-header">
+        ジャンル検索
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= render 'homes/genre', genres: @genres %></p>
+      </div>
+    </div>
+<!--ジャンルサイドバー{Tsuyoshi}-->
+
+<div class="container my-5">
+  <div class="row">
+    <h3 class='mx-auto'>新着商品</h3>
+  </div>
+
+  <!--新着商品4件表示{Tsuyoshi}-->
+  <tbody>
+  <div class="d-flex align-content-stretch flex-row">
+    <% @items.last(4).each do |item| %>
+     <span class= "p-4">
+        <%= link_to item_path(item) do %>
+          <%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg', fallback: 'noimage.jpg', size: '200x200', class: "rounded" %>
+        <% end %><br />
+        <%= item.item %><br />
+        <%= number_to_currency(item.price * 1.1, :format => "%u%n", :unit => "￥") %></span><br />
+    <% end %>
+  </div>
+
+  <div class='text-end'>
+     <%= link_to '全ての商品を見る >',items_path %>
+ </div>
+
+</div>
+  <tbody>
+
+
+
+ <!--新着商品4件表示{Tsuyoshi}-->

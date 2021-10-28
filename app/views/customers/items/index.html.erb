@@ -1,0 +1,28 @@
+  <div class= "container ">
+  <div class= "row py-3">
+   <div class= "d-flex mx-auto">
+     <div class="col-2 card">
+      <div class="card-header">
+        ジャンル検索
+      </div>
+      <div class="card-body">
+        <p class="card-text"><%= render 'homes/genre', genres: @genres %></p>
+      </div>
+    </div>
+<div class='container'>
+   <div class='row'>
+
+       <h2 class= "col-6 text-start design">商品一覧（全<%= @items.count %>件)</h2>
+       <div class="d-flex align-content-stretch flex-wrap">
+           <% @items.each do |item| %>
+             <span class= "p-4">
+              <%= link_to item_path(item.id) do %><%= attachment_image_tag item, :image, :fill, 180, 180, format: 'jpeg', fallback: "noimage.jpg", size: '200x200', class: "rounded" %><br /><% end%>
+              <%= link_to item_path(item.id) do %><%= item.item %> <% end %><br />
+              <%= number_to_currency(item.price, unit: "¥", format: "%u %n") %>
+             </span>
+           <% end %>
+       </div>
+    </div>
+  </div>
+
+<%= paginate @item_page %>

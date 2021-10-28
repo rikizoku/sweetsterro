@@ -1,0 +1,65 @@
+<div class= "container ">
+  <div class= "row">
+    <h2 class= "col-3 manage"><%= @customer.first_name + @customer.last_name %>さんの会員詳細</h2>
+  </div>
+</div>
+
+<div class= "container">
+  <div class="row">
+     <table class="table table-borderless" style="width: 60%;">
+   <tr>
+     <th>会員ID</th>
+     <td><%= @customer.id %></td>
+  </tr>
+
+  <tr>
+    <th>氏名</th>
+    <td><%= @customer.first_name %><%= @customer.last_name %></td>
+  </tr>
+
+  <tr>
+    <th>フリガナ</th>
+    <td><%= @customer.first_name_kana %><%= @customer.last_name_kana %></td>
+  </tr>
+
+  <tr>
+    <th>郵便番号</th>
+    <td><%= @customer.post_code %></td>
+  </tr>
+
+  <tr>
+    <th>住所</th>
+    <td><%= @customer.address %></td>
+  </tr>
+
+  <tr>
+    <th>電話番号</th>
+    <td><%= @customer.phone_number %></td>
+  </tr>
+
+  <tr>
+    <th>メールアドレス</th>
+    <td><%= @customer.email %></td>
+  </tr>
+
+  <tr>
+    <th>会員ステータス</th>
+    <td>
+      <% if @customer.status == false %>
+     <p class="text-success"><strong class='ture' style="color :limegreen;">有効</strong></p>
+      <% else %>
+       <p class="text-danger"><strong class='false' style="color :#d3d3d3;">退会中</p>
+      <% end %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <%= link_to "編集する", edit_admins_customer_path(@customer), class:"btn btn-success" %>
+      <%= link_to "注文履歴一覧を見る", admins_path(@customer), class:"btn btn-primary" %>
+    </td>
+  </tr>
+
+    </table>
+    </div>
+</div>

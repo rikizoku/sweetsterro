@@ -1,0 +1,32 @@
+<div class="col-md-5 offset-md-3">
+   <h4 class="col-3 manage">会員一覧</h4>
+   <table class="table">
+    <thead class="thead" style="background-color: #eee;">
+      <tr style="color:#fff; background:#005ab3;">
+        <th>会員ID</th>
+        <th>氏名</th>
+        <th>メールアドレス</th>
+        <th>ステータス</th>
+      </tr>
+    </thead>
+  	 <tbody>
+  	   <% @customers.each do |customer| %>
+	  	<tr>
+	  	  <td><%= customer.id %></td>
+	  	  <td>
+	  	    <%= link_to admins_customer_path(customer) do %>
+	  	    <%= customer.first_name %><%= customer.last_name %>
+	  	    <% end %>
+	  	  </td>
+	  	  <td><%= customer.email %></td>
+	  	  <td><% if customer.status == false %>
+	  	    <h7><strong class='ture' style="color :limegreen;">有効</strong></h7>
+	  	    <% else %>
+	  	    <h7 ><strong class='false' style="color :#d3d3d3;">退会中</strong></h7>
+	  	    <% end %></td>
+	  	</tr>
+  	   <% end %>
+  	 </tbody>
+  </table>
+  <%= paginate @customers, left: 3 %>
+</div>

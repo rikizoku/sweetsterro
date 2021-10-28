@@ -1,0 +1,31 @@
+
+<div class= "container">
+  <div class="row px-3">
+      <h2 class="col-3 manage">注文履歴一覧</h2>
+      <div class="col-xs-10 col-xs-offset-1"style="margin-top: 50px;">
+        <table class="table">
+          <thead>
+            <tr class="table-head" style="color:#fff; background:#005ab3;">
+              <th scope="col">購入日時</th>
+              <th scope="col">購入者</th>
+              <th scope="col">注文個数</th>
+              <th scope="col">注文ステータス</th>
+            </tr>
+          </thead>
+              <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M"), admins_order_path(order) %></td>
+            <!-- .strftime => created_atの表記を設定 -->
+            <td><%= order.customer.first_name %>
+              <%= order.customer.last_name %>
+            </td>
+            <td><%= order.order_items.sum(:quantity) %></td>
+            <td><%= order.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+        </table>
+
+      </div>
+    </div>
